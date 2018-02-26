@@ -7,9 +7,14 @@ public class NpcOnClick : MonoBehaviour{
 
 	public ReactionCollection npcReaction;
 
+	private MeshRenderer mesh;
+
+	private bool isClick = false;
+
+
 	// Use this for initialization
 	void Start () {
-
+		mesh = gameObject.GetComponent<MeshRenderer> ();
 	}
 	
 	// Update is called once per frame
@@ -19,11 +24,29 @@ public class NpcOnClick : MonoBehaviour{
 		
 	public void OnMouseDown()
 	{
-		Debug.Log ("OnMouseDown");
-		if (npcReaction != null) {
+		mesh.material.color = Color.red;
+		isClick = true;
 
-			Debug.Log ("Event Start");
-			npcReaction.React ();
+	}
+
+	public void OnMouseUp()
+	{
+		Debug.Log ("OnMouseDown");
+		if (isClick) {
+			if (npcReaction != null) {
+
+				Debug.Log ("Event Start");
+				mesh.material.color = Color.green;
+
+				npcReaction.InitIndex ();
+				npcReaction.React ();
+			}
 		}
+	}
+
+	public void OnMouseExit()
+	{
+		isClick = false;
+		mesh.material.color = Color.green;
 	}
 }

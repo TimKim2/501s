@@ -25,14 +25,24 @@ public class ReactionCollection : MonoBehaviour
         }
     }
 
+	public void InitIndex()
+	{
+		startIndex = 0;
+
+		for (int i = 0; i < reactions.Length; i++)
+		{
+			DelayedReaction delayedReaction = reactions[i] as DelayedReaction;
+
+			if (delayedReaction)
+				delayedReaction.Init();
+			else
+				reactions[i].Init();
+		}
+	}
+
 
     public void React()
     {
-        //React 하고 있을 때는 무조건 스크린 터치를 끈다.
-        //GameObject go = GameObject.Find("CoroutineHandler");
-        //Destroy(go);
-        //FSLocator.controlManager.m_Button.onClick.RemoveAllListeners();
-
         if (FSLocator.textDisplayer.isTyping)
         {
             FSLocator.textDisplayer.SkipTypingLetter();
@@ -44,14 +54,19 @@ public class ReactionCollection : MonoBehaviour
         for (int i = startIndex; i < reactions.Length; i++)
         {
            	Debug.Log(i);
+
             DelayedReaction delayedReaction = reactions[i] as DelayedReaction;
+
+			Debug.Log (reactions [i].GetType ().Name);
 
             if (delayedReaction)
             {
                 if (reactions[i].GetType().Name == "TextReaction")
                 {
-                    if (startIndex == reactions.Length - 1)
-                        break;
+					if (startIndex == reactions.Length - 1) {
+						Debug.Log ("Break");
+						break;
+					}
                     else
                     {
                         startIndex = i + 1;
