@@ -38,6 +38,8 @@ public class ReactionCollection : MonoBehaviour
 			else
 				reactions[i].Init();
 		}
+
+		FSLocator.textDisplayer.reactionButton.onClick.RemoveAllListeners();
 	}
 
 

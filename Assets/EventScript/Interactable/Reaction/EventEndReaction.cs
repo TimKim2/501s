@@ -24,6 +24,7 @@ public class EventEndReaction : DelayedReaction
 
         //대화 관련된 것들 전부 숨기기
 		FSLocator.textDisplayer.reactionButton.onClick.RemoveAllListeners();
+		FSLocator.textDisplayer.reactionButton.gameObject.SetActive (false);
         FSLocator.textDisplayer.HideDialogueHolder();
 		//FSLocator.cutSceneTextDisplayer.cutSceneText.gameObject.SetActive (false);;
         //FSLocator.characterDisplayer.HideImage();
