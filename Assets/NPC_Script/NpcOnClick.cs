@@ -49,4 +49,11 @@ public class NpcOnClick : MonoBehaviour{
 		isClick = false;
 		mesh.material.color = Color.green;
 	}
+
+	public void OnCollisionEnter2D(Collision2D col)
+	{
+		if (col.transform.tag == "Player") {
+			Debug.Log ("Col");
+		}
+	}
 }
