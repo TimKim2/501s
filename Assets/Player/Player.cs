@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+	private float speed = ConstConfiger.PLYAER_SPEED;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -12,13 +14,13 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey (KeyCode.LeftArrow)) {
-			transform.position += Vector3.left * Time.deltaTime;
+			transform.position += Vector3.left * Time.deltaTime * speed;
 		} else if (Input.GetKey (KeyCode.RightArrow)) {
-			transform.position += Vector3.right * Time.deltaTime;
+			transform.position += Vector3.right * Time.deltaTime * speed;
 		} else if (Input.GetKey (KeyCode.UpArrow)) {
-			transform.position += Vector3.up * Time.deltaTime;
+			transform.position += Vector3.up * Time.deltaTime * speed;
 		} else if (Input.GetKey (KeyCode.DownArrow)) {
-			transform.position += Vector3.down * Time.deltaTime;
+			transform.position += Vector3.down * Time.deltaTime * speed;
 		}
 	}
 }
