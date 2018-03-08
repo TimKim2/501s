@@ -97,7 +97,6 @@ public class FSLocator
 
     private static CutSceneTextDisplayer m_cutSceneTextDisplayer;
 
-
     public static CutSceneTextDisplayer cutSceneTextDisplayer
     {
         get
@@ -110,5 +109,16 @@ public class FSLocator
         }
     }
 
+	private static ChangeSceneManager m_changeSceneManager;
+
+	public static ChangeSceneManager changeSceneManager
+	{
+		get {
+			if (m_changeSceneManager) {
+				m_changeSceneManager = GameObject.FindObjectOfType<ChangeSceneManager> ();
+			}
+			return m_changeSceneManager;
+		}
+	}
 
 }

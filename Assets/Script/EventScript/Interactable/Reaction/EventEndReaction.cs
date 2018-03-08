@@ -27,7 +27,7 @@ public class EventEndReaction : DelayedReaction
 		FSLocator.textDisplayer.reactionButton.gameObject.SetActive (false);
         FSLocator.textDisplayer.HideDialogueHolder();
 		//FSLocator.cutSceneTextDisplayer.cutSceneText.gameObject.SetActive (false);;
-        //FSLocator.characterDisplayer.HideImage();
+        FSLocator.characterDisplayer.HideImage();
         //FSLocator.backgroundDisplayer.HideBackground();
 
 		//TutorialController.Instance.ShowButton ();

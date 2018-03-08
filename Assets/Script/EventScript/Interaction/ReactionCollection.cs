@@ -45,7 +45,11 @@ public class ReactionCollection : MonoBehaviour
 
     public void React()
     {
-		EventMaster.Instance.currentReactionCollection = this;
+		Debug.Log ("Click");
+
+		if (EventMaster.Instance) {
+			EventMaster.Instance.currentReactionCollection = this;
+		}
 
         if (FSLocator.textDisplayer.isTyping)
         {
@@ -77,6 +81,7 @@ public class ReactionCollection : MonoBehaviour
                         delayedReaction.React(this);
 						FSLocator.textDisplayer.reactionButton.onClick.RemoveAllListeners();
 						FSLocator.textDisplayer.reactionButton.onClick.AddListener(delegate { this.React(); });
+						Debug.Log ("Add Delegate");
                         return;
                     }
                 }
@@ -92,6 +97,9 @@ public class ReactionCollection : MonoBehaviour
 						//TutorialController.Instance.reactionButton.onClick.AddListener(delegate { this.React(); });
 
                         delayedReaction.React(this);
+						FSLocator.textDisplayer.reactionButton.onClick.RemoveAllListeners();
+						FSLocator.textDisplayer.reactionButton.onClick.AddListener(delegate { this.React(); });
+					
                         return;
                     }
                 }
