@@ -72,11 +72,17 @@ public class ConditionEditor : Editor
 
         EditorGUILayout.LabelField(condition.description);
 
+
         if (GUILayout.Button("-", GUILayout.Width(conditionButtonWidth)))
             AllConditionsEditor.RemoveCondition(condition);
 
         EditorGUI.indentLevel--;
         EditorGUILayout.EndHorizontal();
+
+		condition.satisfied = EditorGUILayout.Toggle ("Satisfied", condition.satisfied);
+
+
+
     }
 
 

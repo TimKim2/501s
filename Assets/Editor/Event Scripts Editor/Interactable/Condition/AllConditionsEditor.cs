@@ -84,6 +84,9 @@ public class AllConditionsEditor : Editor
             conditionEditors[i].OnInspectorGUI ();
         }
 
+
+
+
         if (TryGetConditionsLength () > 0)
         {
             EditorGUILayout.Space ();
