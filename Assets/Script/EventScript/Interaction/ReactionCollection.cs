@@ -97,8 +97,6 @@ public class ReactionCollection : MonoBehaviour
 						//TutorialController.Instance.reactionButton.onClick.AddListener(delegate { this.React(); });
 
                         delayedReaction.React(this);
-						FSLocator.textDisplayer.reactionButton.onClick.RemoveAllListeners();
-						FSLocator.textDisplayer.reactionButton.onClick.AddListener(delegate { this.React(); });
 					
                         return;
                     }

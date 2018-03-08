@@ -114,7 +114,7 @@ public class FSLocator
 	public static ChangeSceneManager changeSceneManager
 	{
 		get {
-			if (m_changeSceneManager) {
+			if (!m_changeSceneManager) {
 				m_changeSceneManager = GameObject.FindObjectOfType<ChangeSceneManager> ();
 			}
 			return m_changeSceneManager;
