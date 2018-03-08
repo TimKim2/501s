@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class NpcOnClick : MonoBehaviour{
 
-	public ReactionCollection npcReaction;
+	public Interactable npcInteractable;
 
 	private MeshRenderer mesh;
 
@@ -33,13 +33,13 @@ public class NpcOnClick : MonoBehaviour{
 	{
 		Debug.Log ("OnMouseDown");
 		if (isClick) {
-			if (npcReaction != null) {
+			if (npcInteractable != null) {
 
 				Debug.Log ("Event Start");
 				mesh.material.color = Color.green;
 
-				npcReaction.InitIndex ();
-				npcReaction.React ();
+				npcInteractable.Interact ();
+		
 			}
 		}
 	}

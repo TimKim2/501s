@@ -7,6 +7,7 @@ public class Interactable : MonoBehaviour
     public ReactionCollection defaultReactionCollection;
 
     private bool isFirst = false;
+	public bool isSkip = false;
 
 	public void Start()
 	{
@@ -33,8 +34,10 @@ public class Interactable : MonoBehaviour
         if (!isFirst)
         {
             isFirst = true;
-            /*if(!FSLocator.controlManager.EventIsPlaying)
-                defaultReactionCollection.React();
+			defaultReactionCollection.InitIndex();
+			defaultReactionCollection.React();
+            //if(!FSLocator.controlManager.EventIsPlaying)
+                //
            //isSkip = true;*/
         }
     }

@@ -37,8 +37,11 @@ public class ConditionCollection : ScriptableObject
         if (!isFirst)
         {
             isFirst = true;
+
+			reactionCollection.InitIndex ();
+			reactionCollection.React();
             /*if (!FSLocator.controlManager.EventIsPlaying)
-                reactionCollection.React();*/
+                ;*/
         }
     }
 
