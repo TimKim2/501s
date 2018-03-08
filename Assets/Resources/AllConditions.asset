@@ -42,7 +42,7 @@ MonoBehaviour:
   m_Name: 1_1Dialogue
   m_EditorClassIdentifier: 
   description: 1_1Dialogue
-  satisfied: 0
+  satisfied: 1
   hash: -1628926622
 --- !u!114 &114497912637552600
 MonoBehaviour:
