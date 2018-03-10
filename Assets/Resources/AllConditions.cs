@@ -28,6 +28,11 @@ public class AllConditions : ResettableScriptableObject {
         set { instance = value; }
     }
 
+	public void OnEnable()
+	{
+		Reset ();
+
+	}
 
     public override void Reset()
     {
