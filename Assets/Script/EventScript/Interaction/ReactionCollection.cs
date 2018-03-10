@@ -47,10 +47,6 @@ public class ReactionCollection : MonoBehaviour
     {
 		Debug.Log ("Click");
 
-		if (EventMaster.Instance) {
-			EventMaster.Instance.currentReactionCollection = this;
-		}
-
         if (FSLocator.textDisplayer.isTyping)
         {
             FSLocator.textDisplayer.SkipTypingLetter();
@@ -92,12 +88,11 @@ public class ReactionCollection : MonoBehaviour
                     else
                     {
                         startIndex = i + 1;
-						//TutorialController.Instance.afterDelayReaction = this;
-						//TutorialController.Instance.reactionButton.onClick.RemoveAllListeners();
-						//TutorialController.Instance.reactionButton.onClick.AddListener(delegate { this.React(); });
 
-                        delayedReaction.React(this);
-					
+						FSLocator.textDisplayer.reactionButton.onClick.RemoveAllListeners();
+						FSLocator.textDisplayer.reactionButton.onClick.AddListener(delegate { this.React(); });
+
+						delayedReaction.React(this);
                         return;
                     }
                 }
@@ -144,7 +139,7 @@ public class ReactionCollection : MonoBehaviour
                 }
                 else
                 {
-                  //  Debug.Log("Other Reaction");
+                  	Debug.Log("Other Reaction");
                     delayedReaction.React(this);
                 }
             }

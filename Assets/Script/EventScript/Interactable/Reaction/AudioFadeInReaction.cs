@@ -17,7 +17,7 @@ public class AudioFadeInReaction : DelayedReaction
 		if (audioClip != null)
 			audioSource.clip = audioClip;
 		audioSource.volume = volume;
-		audioSource.PlayDelayed(delay);
+
 		go = CoroutineHandler.Start_Coroutine(FadeInAudio()).gameObject;
 	}
 

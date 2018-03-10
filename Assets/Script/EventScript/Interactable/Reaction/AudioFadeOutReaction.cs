@@ -15,8 +15,9 @@ public class AudioFadeOutReaction : DelayedReaction
 	{
 		if (audioClip != null)
 			audioSource.clip = audioClip;
+		
 		audioSource.volume = volume;
-		audioSource.PlayDelayed(delay);
+		//audioSource.PlayDelayed(delay);
 		go = CoroutineHandler.Start_Coroutine(FadeOutAudio()).gameObject;
 	}
 

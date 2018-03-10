@@ -9,18 +9,20 @@ public class DelayReaction : DelayedReaction
 
     protected override void ImmediateReaction()
     {
-        //Debug.Log("Is Delay?");
-        //FSLocator.controlManager.m_Button.enabled = false;
+		FSLocator.textDisplayer.reactionButton.enabled = false;
+
 		myCorotine = CoroutineHandler.Start_Coroutine(Delay()).gameObject;
     }
 
     IEnumerator Delay()
     {
+		Debug.Log ("Cor Start");
 
         yield return new WaitForSeconds(delayTime);
-		if (EventMaster.Instance.currentReactionCollection) {
-			EventMaster.Instance.currentReactionCollection.React ();
-		}
+
+		FSLocator.textDisplayer.reactionButton.enabled = true;
+		Debug.Log ("Invoke");
+		FSLocator.textDisplayer.reactionButton.onClick.Invoke ();
 
 		Destroy(myCorotine);
     }
