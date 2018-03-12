@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
-  sceneName: FirstCutScene
+  sceneName: MinsooTestScene
 --- !u!1 &332087509
 GameObject:
   m_ObjectHideFlags: 0
