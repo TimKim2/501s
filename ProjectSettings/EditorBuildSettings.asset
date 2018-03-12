@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/MinsooTestScene.unity
     guid: fc5057ba6607c6d4cafa93c4cfe32c9e
+  - enabled: 1
+    path: Assets/Scene/Stage01.Unity
+    guid: a028c569abf144f67a34c836e7d88ec1

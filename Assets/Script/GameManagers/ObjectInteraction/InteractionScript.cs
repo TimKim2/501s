@@ -13,6 +13,7 @@ public class InteractionScript : MonoBehaviour {
 
     // NPC 객체가 가지는 UI 목록
     public List<Button> list;
+	public ReactionCollection reaction;
 
     private List<Button> conShowedUI = new List<Button>();
 
@@ -44,6 +45,12 @@ public class InteractionScript : MonoBehaviour {
 
                 // 생성한 UI 위치를 부모 객체 위로 이동
                 button.GetComponent<RectTransform>().anchoredPosition = new Vector2(parentObject.position.x, parentObject.position.y + 1.8f);
+
+				button.onClick.RemoveAllListeners ();
+				button.onClick.AddListener(delegate {
+					reaction.React();
+				});
+
             }
         }
     }
