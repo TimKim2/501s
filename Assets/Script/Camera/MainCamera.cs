@@ -9,7 +9,7 @@ public class MainCamera : MonoBehaviour {
 
 	void Start(){
 		Player = GameObject.FindGameObjectWithTag ("Player").transform;
-		cameraDeapth = new Vector3 (0, 0, -10);
+		cameraDeapth = new Vector3 (0, 0, -30);
 	}
 
 	void LateUpdate(){
