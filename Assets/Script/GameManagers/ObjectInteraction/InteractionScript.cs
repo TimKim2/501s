@@ -30,7 +30,10 @@ public class InteractionScript : MonoBehaviour {
         // 상호작용이 가능한 거리로 플레이어가 접근
         if(collision.tag == "Player")
         {
-            // 지정된 UI 리스트에서 리스트 한개를 추출 (위치는 현재 무시..)
+            // NPC가 이벤트 수행중이 아니라면, 현재 행동을 멈추고 플레이어를 바라본다.
+            parentObject.GetComponent<NpcScript>().NearByPlayer();
+
+            // 저장된 UI 리스트에서 UI를 생성 (각 UI 생성 위치는 현재 무시..)
             foreach(var ui in list)
             {
 
@@ -68,5 +71,8 @@ public class InteractionScript : MonoBehaviour {
             // 현재 표시된 UI가 없으므로 할당했던 리스트를 초기화한다.
             conShowedUI.Clear();
         }
+
+        // NPC가 이벤트 수행중이 아니라면, 바라보는것을 멈추고 다시 기존의 행동을 유지한다.
+        parentObject.GetComponent<NpcScript>().GetAwayPlayer();
     }
 }
