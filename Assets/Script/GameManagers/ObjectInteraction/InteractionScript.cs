@@ -51,6 +51,7 @@ public class InteractionScript : MonoBehaviour {
 
 				button.onClick.RemoveAllListeners ();
 				button.onClick.AddListener(delegate {
+                    reaction.InitIndex();
 					reaction.React();
 				});
 
