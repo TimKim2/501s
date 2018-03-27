@@ -13,7 +13,9 @@ public class PlayerScript : CharacterScript {
     // 이동속도
     private float speed;
 
-
+    // 현재 상태 표시
+    private enum BEHAVIOR_MODE { IDLE, MOVE_TOPLEFT, MOVE_TOPRIGHT, MOVE_BOTLEFT, MOVE_BOTRIGHT };
+    private BEHAVIOR_MODE mode;
 
 
     // ******************************* 메서드 정의 **********************************
@@ -26,7 +28,7 @@ public class PlayerScript : CharacterScript {
     // CharacterSript를 상속하는 모든 클래스가 아닌, PlayerScript에서 필요한 Start 본문을 템플릿 메서드 패턴을 이용하여 작성합니다.
     public override void TemplateStart()
     {
-        
+        mode = BEHAVIOR_MODE.IDLE;
     }
 
     // Update is called once per frame
@@ -85,30 +87,60 @@ public class PlayerScript : CharacterScript {
             // 클릭 좌표가 플레이어보다 왼쪽에 있다.
             if(trans.position.x > movePoint.x)
             {
-                 // 클릭 좌표가 플레이어보다 아래에 있다.
-                if (trans.position.y > movePoint.y)
+                // 클릭 좌표가 플레이어보다 아래에 있다.
+                if (trans.position.y > movePoint.y && !(mode == BEHAVIOR_MODE.MOVE_BOTLEFT))
+                {
                     anim.SetTrigger("BotLeft");
+
+                    mode = BEHAVIOR_MODE.MOVE_BOTLEFT;
+                }
                 // 클릭 좌표가 플레이어보다 위에 있다.
-                else
+                else if(trans.position.y <= movePoint.y && !(mode == BEHAVIOR_MODE.MOVE_TOPLEFT))
+                {
                     anim.SetTrigger("TopLeft");
 
+                    mode = BEHAVIOR_MODE.MOVE_TOPLEFT;
+                }
             }
             // 클릭 좌표가 플레이어보다 오른쪽에 있다.
             else
             {
                 // 클릭 좌표가 플레이어보다 아래에 있다.
-                if (trans.position.y > movePoint.y)
+                if (trans.position.y > movePoint.y && !(mode == BEHAVIOR_MODE.MOVE_BOTRIGHT))
+                {
                     anim.SetTrigger("BotRight");
+
+                    mode = BEHAVIOR_MODE.MOVE_BOTRIGHT;
+                }
                 // 클릭 좌표가 플레이어보다 위에 있다.
-                else
+                else if(trans.position.y <= movePoint.y && !(mode == BEHAVIOR_MODE.MOVE_TOPRIGHT))
+                {
                     anim.SetTrigger("TopRight");
+
+                    mode = BEHAVIOR_MODE.MOVE_TOPRIGHT;
+                }
             }
         }
         // 정지한 상태이면..
         else
         {
-            // 바로 Idle 애니메이션 실행
-            anim.SetTrigger("Idle");
+            // 이동하던 방향에 따라 캐릭터기 Idle 하며 바라보는 애니메이션 지정
+            switch(mode)
+            {
+                case BEHAVIOR_MODE.MOVE_BOTLEFT:
+                    anim.SetTrigger("Idle_BotLeft");
+                    break;
+                case BEHAVIOR_MODE.MOVE_BOTRIGHT:
+                    anim.SetTrigger("Idle_BotRight");
+                    break;
+                case BEHAVIOR_MODE.MOVE_TOPLEFT:
+                    anim.SetTrigger("Idle_TopLeft");
+                    break;
+                case BEHAVIOR_MODE.MOVE_TOPRIGHT:
+                    anim.SetTrigger("Idle_TopRight");
+                    break;
+            }
+            mode = BEHAVIOR_MODE.IDLE;
         }
     }
 }
