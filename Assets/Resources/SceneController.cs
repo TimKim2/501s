@@ -2,15 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu]
 public class SceneController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	private static SceneController instance;
+	const string loadPath = "SceneController";
+
+	public static SceneController Instance
+	{
+		get
+		{
+			if (!instance)
+				instance = FindObjectOfType<SceneController>();
+			if (!instance)
+				instance = Resources.Load<SceneController>(loadPath);
+			if (!instance)
+				Debug.Log ("Error");
+				
+			return instance;
+		}
+		set { instance = value; }
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+	public string CurrentScene;
+
+	public string SelectedCutscene;
 }
