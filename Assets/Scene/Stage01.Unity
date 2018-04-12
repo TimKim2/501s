@@ -3335,6 +3335,7 @@ GameObject:
   - component: {fileID: 1881882542}
   - component: {fileID: 1881882541}
   - component: {fileID: 1881882546}
+  - component: {fileID: 1881882548}
   - component: {fileID: 1881882547}
   m_Layer: 0
   m_Name: Main Camera
@@ -3437,6 +3438,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackPanel: {fileID: 110280641}
   startReacitonCollection: {fileID: 2074714503}
+--- !u!114 &1881882548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1881882540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7527de17253456bb14a68f47b63871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakePosition: 0
+  shakeRotation: 0
+  shakeIntensity: 0.5
+  shakeDecay: 0.02
 --- !u!114 &1887733729
 MonoBehaviour:
   m_ObjectHideFlags: 0

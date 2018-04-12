@@ -16,3 +16,5 @@ public class MainCamera : MonoBehaviour {
 		transform.position = Player.position + cameraDeapth;
 	}
 }
+
+
