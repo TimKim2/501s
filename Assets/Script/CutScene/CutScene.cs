@@ -5,6 +5,7 @@ using UnityEngine;
 public class CutScene : MonoBehaviour {
 
 	public ReactionCollection startCutSceneReaction;
+	public ReactionCollection firstCutSceneReaction;
 
 	// Use this for initialization
 	void Start () {

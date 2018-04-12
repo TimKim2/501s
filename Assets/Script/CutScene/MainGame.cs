@@ -9,7 +9,7 @@ public class MainGame : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		blackPanel.SetActive (true);
+		//blackPanel.SetActive (true);
 		startReacitonCollection.React ();
 
 	}
