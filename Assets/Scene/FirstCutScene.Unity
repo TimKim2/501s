@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 1154777233}
   - component: {fileID: 1154777234}
   m_Layer: 0
-  m_Name: CutSceneReaction
+  m_Name: FirstCutSceneReaction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1157,3 +1157,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startCutSceneReaction: {fileID: 1154777234}
+  firstCutSceneReaction: {fileID: 0}
