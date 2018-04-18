@@ -5,7 +5,7 @@ using UnityEngine;
 public class FriendShipCondition : ScriptableObject {
 
 	public string description;
-	int requireFriendly;
+	public int requireFriendly = 0;
 	public Condition[] addCondition = new Condition[0];
 
 }

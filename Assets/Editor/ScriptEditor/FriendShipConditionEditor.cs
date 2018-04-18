@@ -6,10 +6,9 @@ using UnityEditor;
 [CustomEditor(typeof(FriendShipCondition))]
 public class FriendShipConditionEditor : EditorWithSubEditors<ConditionEditor, Condition> {
 
-	public SerializeField condition;
+	public SerializedProperty friendShipConditionProperty;
 
 	private FriendShipCondition friendShipCondition;
-
 	private SerializedProperty descriptionProperty;
 	private SerializedProperty requireFriendlyProperty;
 	private SerializedProperty addConditionProperty;
@@ -25,6 +24,7 @@ public class FriendShipConditionEditor : EditorWithSubEditors<ConditionEditor, C
 		if (target == null)
 		{
 			DestroyImmediate (this);
+			Debug.Log ("Destroy");
 			return;
 		}
 
@@ -47,10 +47,50 @@ public class FriendShipConditionEditor : EditorWithSubEditors<ConditionEditor, C
 		editor.conditionsProperty = addConditionProperty;
 	}
 
-	public override void OnInspectorGUI(){
+	public override void OnInspectorGUI ()
+	{
+		serializedObject.Update ();
+
+		CheckAndCreateSubEditors(friendShipCondition.addCondition);
+
+
+		//
+
+		EditorGUILayout.BeginVertical(GUI.skin.box);
+		EditorGUI.indentLevel++;
+
+
+		EditorGUILayout.BeginHorizontal();
+
+		descriptionProperty.isExpanded = EditorGUILayout.Foldout(descriptionProperty.isExpanded, descriptionProperty.stringValue);
+		//requireFriendlyProperty.isExpanded = EditorGUILayout.Foldout (requireFriendlyProperty.isExpanded, requireFriendlyProperty.intValue);
+
+		if (GUILayout.Button("Remove Collection", GUILayout.Width(125f)))
+		{
+			friendShipConditionProperty.RemoveFromObjectArray (friendShipCondition);
+		}
+
+		EditorGUILayout.EndHorizontal();
+
+		if (descriptionProperty.isExpanded)
+		{
+			ExpandedGUI ();
+		}
+
+		EditorGUI.indentLevel--;
+		EditorGUILayout.EndVertical();
+
+		serializedObject.ApplyModifiedProperties();
+	}
+
+
+	private void ExpandedGUI ()
+	{
 		EditorGUILayout.Space();
 
 		EditorGUILayout.PropertyField(descriptionProperty);
+		EditorGUILayout.Space();
+		EditorGUILayout.PropertyField(requireFriendlyProperty);
 
 		EditorGUILayout.Space();
 
@@ -71,15 +111,24 @@ public class FriendShipConditionEditor : EditorWithSubEditors<ConditionEditor, C
 
 		EditorGUILayout.BeginHorizontal();
 		GUILayout.FlexibleSpace ();
-		if (GUILayout.Button("+", GUILayout.Width(125f)))
+		if (GUILayout.Button("+", GUILayout.Width(30f)))
 		{
 			Condition newCondition = ConditionEditor.CreateCondition();
 			addConditionProperty.AddToObjectArray(newCondition);
 		}
 		EditorGUILayout.EndHorizontal();
+
+		EditorGUILayout.Space();
+
 	}
 
-	private void ExpandedGUI(){
 
+	public static FriendShipCondition CreateConditionCollection()
+	{
+		FriendShipCondition newConditionCollection = CreateInstance<FriendShipCondition>();
+		newConditionCollection.description = "New condition collection";
+		newConditionCollection.addCondition = new Condition[1];
+		newConditionCollection.addCondition[0] = ConditionEditor.CreateCondition();
+		return newConditionCollection;
 	}
 }

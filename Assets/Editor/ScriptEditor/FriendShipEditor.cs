@@ -21,7 +21,6 @@ public class FriendShipEditor : EditorWithSubEditors<FriendShipConditionEditor, 
 		friendlyProperty = serializedObject.FindProperty(friendlyPropertyName);
 		friendShipConditionProperty = serializedObject.FindProperty(friendShipConditionPropertyName);
 
-
 		CheckAndCreateSubEditors(friendShip.friendShipCondition);
 	}
 
@@ -34,8 +33,9 @@ public class FriendShipEditor : EditorWithSubEditors<FriendShipConditionEditor, 
 
 	protected override void SubEditorSetup(FriendShipConditionEditor editor)
 	{
-		//editor.condition = friendShipConditionProperty;
+		editor.friendShipConditionProperty = friendShipConditionProperty;
 	}
+
 
 
 	public override void OnInspectorGUI ()
@@ -44,9 +44,11 @@ public class FriendShipEditor : EditorWithSubEditors<FriendShipConditionEditor, 
 
 		CheckAndCreateSubEditors(friendShip.friendShipCondition);
 
+		EditorGUILayout.PropertyField (friendlyProperty);
+
 		for (int i = 0; i < subEditors.Length; i++)
 		{
-			//subEditors[i].OnInspectorGUI ();
+			subEditors[i].OnInspectorGUI ();
 			EditorGUILayout.Space ();
 		}
 
@@ -54,7 +56,7 @@ public class FriendShipEditor : EditorWithSubEditors<FriendShipConditionEditor, 
 		GUILayout.FlexibleSpace ();
 		if (GUILayout.Button("Add Collection", GUILayout.Width(collectionButtonWidth)))
 		{
-			ConditionCollection newCollection = ConditionCollectionEditor.CreateConditionCollection ();
+			FriendShipCondition newCollection = FriendShipConditionEditor.CreateConditionCollection ();
 			friendShipConditionProperty.AddToObjectArray (newCollection);
 		}
 		EditorGUILayout.EndHorizontal ();
