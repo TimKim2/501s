@@ -18,26 +18,7 @@ public class PlayerScript : CharacterScript {
     private BEHAVIOR_MODE mode;
 
 
-    // ******************************* 메서드 정의 **********************************
-
-
-
-
-
-    // Use this for initialization
-    // CharacterSript를 상속하는 모든 클래스가 아닌, PlayerScript에서 필요한 Start 본문을 템플릿 메서드 패턴을 이용하여 작성합니다.
-    public override void TemplateStart()
-    {
-        mode = BEHAVIOR_MODE.IDLE;
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        // 이동
-        Moving();
-    }
-
+    // ******************************* 공개 메서드 정의 **********************************
 
     // 유저가 클릭한 좌표를 플레이어 스크립트에 전달합니다.
     public override void Move(Vector2 touchPoint, float speed)
@@ -54,6 +35,35 @@ public class PlayerScript : CharacterScript {
         ChangeAnimation();
     }
 
+    // UI 클릭 등에 의한 정지
+    public void Stop()
+    {
+        // 이동 정지
+        isMoving = false;
+
+        // 정지 애니메이션 수행
+        ChangeAnimation();
+    }
+
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        // 이동
+        Moving();
+    }
+
+    // ******************************* 비공개 메서드 정의 **********************************
+
+    // Use this for initialization
+    // CharacterSript를 상속하는 모든 클래스가 아닌, PlayerScript에서 필요한 Start 본문을 템플릿 메서드 패턴을 이용하여 작성합니다.
+    public override void TemplateStart()
+    {
+        mode = BEHAVIOR_MODE.IDLE;
+
+        trans.position = new Vector3(trans.position.x, trans.position.y, trans.position.y);
+    }
+
     // 이동 중이면 목표 좌표로 이동합니다.
     private void Moving()
     {
@@ -62,11 +72,7 @@ public class PlayerScript : CharacterScript {
             // 현재 좌표가 이동 목표 좌표로 이동 완료되면..
             if (trans.position.x == movePoint.x && trans.position.y == movePoint.y)
             {
-                // 이동 정지
-                isMoving = false;
-
-                // 정지 애니메이션 수행
-                ChangeAnimation();
+                Stop();
 
                 return;
             }
@@ -74,7 +80,8 @@ public class PlayerScript : CharacterScript {
 
             // 이동 목표 좌표로 이동 시작
             // y축에 따라 캐릭터들 간의 표시 순서가 달라져야 하므로, y축의 값을 z에도 주면서 sort 되도록 한다.
-            trans.position = Vector3.MoveTowards(trans.position, new Vector3(movePoint.x, movePoint.y, movePoint.y), speed * Time.deltaTime);
+            trans.position = Vector3.MoveTowards(trans.position, new Vector3(movePoint.x, movePoint.y, trans.position.z), speed * Time.deltaTime);
+            trans.position = new Vector3(trans.position.x, trans.position.y, trans.position.y);
         }
     }
 
