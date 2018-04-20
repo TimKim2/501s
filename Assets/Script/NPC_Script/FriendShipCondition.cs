@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FriendShipCondition : MonoBehaviour {
+public class FriendShipCondition : ScriptableObject {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public string description;
+	public int requireFriendly = 0;
+	public Condition[] addCondition = new Condition[0];
+
 }

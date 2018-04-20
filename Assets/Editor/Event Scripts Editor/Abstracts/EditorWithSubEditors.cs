@@ -12,8 +12,11 @@ public abstract class EditorWithSubEditors<TEditor, TTarget> : Editor
 
     protected void CheckAndCreateSubEditors (TTarget[] subEditorTargets)
     {
-        if (subEditors != null && subEditors.Length == subEditorTargets.Length)
-            return;
+		if (subEditors != null && subEditors.Length == subEditorTargets.Length) {
+			return;
+		}
+
+		Debug.Log ("Not Return");
 
         CleanupEditors ();
 
