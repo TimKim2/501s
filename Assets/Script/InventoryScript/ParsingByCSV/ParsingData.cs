@@ -16,7 +16,10 @@ public class ParsingData : ScriptableObject {
     // csv로부터 파싱한 정보를 캐싱할 변수.
     public List<Dictionary<string, object>> list = new List<Dictionary<string, object>>();
 
-
+	public void OnEnable(){
+		//SetFilePath(path);
+		Parsing ();
+	}
 
     //================================================= 공개 메서드 정의 =======================================================//
 
