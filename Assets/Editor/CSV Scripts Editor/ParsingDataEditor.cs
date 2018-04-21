@@ -77,14 +77,11 @@ public class ParsingDataEditor : Editor
 
         if (EditorGUI.EndChangeCheck())
         {
-
             //변경전에 Undo 에 등록
             Undo.RecordObject(parsingData, "Change hp");
 
             
 
         }
-        
-
     }
 }
