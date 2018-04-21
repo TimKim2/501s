@@ -1392,7 +1392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
-  delayTime: 4.5
+  delayTime: 5.2
 --- !u!114 &1637834699
 MonoBehaviour:
   m_ObjectHideFlags: 0
