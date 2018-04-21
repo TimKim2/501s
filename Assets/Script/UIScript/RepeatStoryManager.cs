@@ -26,7 +26,6 @@ public class RepeatStoryManager : MonoBehaviour {
 		CutScenePannel.SetActive (false);
 		Next.SetActive (false);
 		Skip.SetActive (false);
-		BlackPaneel.SetActive (false);
 		Before.SetActive (false);
 	}
 }

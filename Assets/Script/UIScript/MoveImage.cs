@@ -72,14 +72,14 @@ public class MoveImage : MonoBehaviour {
 		//StartCoroutine ("ChangeImageScale");
 		
 		for (int i = 0; i < ImageList.Count; i++) {
-			TweenX.Add(ImageList[i], 1f, (i - 1 - currentMovePosition) * 800f + mainXPosition).EaseOutElasticWith(20, 0.625f);
+			TweenX.Add(ImageList[i], 3f, (i - 1 - currentMovePosition) * 800f + mainXPosition).EaseOutElasticWith(20, 5f);
 		}
 
 		Debug.Log (currentMovePosition);
 
 		currentMovePosition++;
 		Debug.Log ("CurrentMovePosition" + currentMovePosition);
-		ImageList [(int)currentMovePosition].transform.SetAsLastSibling();
+		//ImageList [(int)currentMovePosition].transform.SetAsLastSibling();
 
 	}
 
@@ -99,11 +99,11 @@ public class MoveImage : MonoBehaviour {
 		//StartCoroutine ("ChangeImageScale");
 
 		for (int i = 0; i < ImageList.Count; i++) {
-			TweenX.Add(ImageList[i], 3f, (i - currentMovePosition) * 800f + mainXPosition).EaseOutElasticWith(200, 2f);
+			TweenX.Add(ImageList[i], 3f, (i - currentMovePosition) * 800f + mainXPosition).EaseOutElasticWith(20, 5f);
 		}
 
 		Debug.Log ("CurrentMovePosition" + currentMovePosition);
-		ImageList [(int)currentMovePosition].transform.SetAsLastSibling();
+		//ImageList [(int)currentMovePosition].transform.SetAsLastSibling();
 
 		currentMovePosition--;
 

@@ -3,8 +3,8 @@
 using UnityEditor;
 #endif 
 
-[CustomEditor(typeof(SetFriendlyReaction))]
-public class SetFriendlyReactionEditor : ReactionEditor
+[CustomEditor(typeof(SetButtonEnableReaction))]
+public class SetEnableButtonReactionEditor : ReactionEditor
 {
 	protected override string GetFoldoutLabel()
 	{

@@ -1,16 +1,16 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class SetFriendlyReaction : MonoBehaviour {
+public class SetFriendlyReaction : DelayedReaction
+{
+	protected override void SpecificInit()
+	{
 
-	// Use this for initialization
-	void Start () {
-		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+
+	protected override void ImmediateReaction()
+	{
+
 	}
 }
