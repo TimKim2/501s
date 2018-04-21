@@ -21,6 +21,9 @@ public class TextDisplayer : MonoBehaviour {
 
 	public Button reactionButton;
 
+	public CanvasGroup mapPannel;
+	public Text mapText;
+
 
     //바깥에서 현재 타이핑 중인지 컨펌가능
     public bool isTyping
@@ -122,5 +125,10 @@ public class TextDisplayer : MonoBehaviour {
 
         isTyping = false;
     }
+
+	public void SetMapText(string text)
+	{
+		mapText.text = text;
+	}
 
 }

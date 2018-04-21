@@ -6,7 +6,7 @@ public class CutSceneEndReaction : DelayedReaction
 {
 	float currentTime;
 
-	public int fadeTime;
+	public float fadeTime;
 	public CanvasGroup canvas;
 
 	public List<GameObject> activeFalseObjectList;
@@ -23,12 +23,19 @@ public class CutSceneEndReaction : DelayedReaction
 	{
 		currentTime = Time.time;
 
-		while (currentTime + fadeTime > Time.time)
-		{
-			canvas.alpha -= (Time.deltaTime / fadeTime);
+		if (fadeTime == 0f) {
+			canvas.alpha = 0.0f;
 			yield return null;
-		}
 
+		} else {
+			while (currentTime + fadeTime > Time.time) {
+				
+				canvas.alpha -= (float)((float)Time.deltaTime / fadeTime);
+
+				Debug.Log (canvas.alpha);
+				yield return null;
+			}
+		}
 		canvas.gameObject.SetActive (false);
 
 		for (int i = 0; i < activeFalseObjectList.Count; i++) {
