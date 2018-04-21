@@ -166,6 +166,11 @@ public class ReactionCollection : MonoBehaviour
 
 	}
 
+	public void InitAndReact(){
+		InitIndex ();
+		React ();
+	}
+
 	public void MoveAround()
 	{
 		reactions[0].React(this);
