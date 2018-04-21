@@ -45,8 +45,6 @@ public class ReactionCollection : MonoBehaviour
 
     public void React()
     {
-		Debug.Log ("Click");
-
         if (FSLocator.textDisplayer.isTyping)
         {
             FSLocator.textDisplayer.SkipTypingLetter();
@@ -57,8 +55,6 @@ public class ReactionCollection : MonoBehaviour
         
         for (int i = startIndex; i < reactions.Length; i++)
         {
-           	Debug.Log(i);
-
             DelayedReaction delayedReaction = reactions[i] as DelayedReaction;
 
 			Debug.Log (reactions [i].GetType ().Name);

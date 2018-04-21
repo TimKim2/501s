@@ -7,14 +7,18 @@ public class FriendShip : MonoBehaviour {
 	public int friendly;
 	public FriendShipCondition[] friendShipCondition = new FriendShipCondition[0];
 
+	public void Start(){
+		CheckAndSetCondition ();
+	}
 
-	// Use this for initialization
-	void Start () {
-		
+	public void CheckAndSetCondition()
+	{
+		for (int i = 0; i < friendShipCondition.Length; i++) {
+			if (friendly >= friendShipCondition [i].requireFriendly) {
+				friendShipCondition [i].CheckAndFix ();
+			}
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+
 }

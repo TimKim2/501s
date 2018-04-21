@@ -14,7 +14,6 @@ public class SetButtonEnableReaction : DelayedReaction
 
 	protected override void ImmediateReaction()
 	{
-		Debug.Log (isEnable + "isEnable");
 		button.enabled = isEnable;
 	}
 }

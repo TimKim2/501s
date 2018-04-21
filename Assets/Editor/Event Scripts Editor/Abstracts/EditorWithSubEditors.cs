@@ -16,8 +16,6 @@ public abstract class EditorWithSubEditors<TEditor, TTarget> : Editor
 			return;
 		}
 
-		Debug.Log ("Not Return");
-
         CleanupEditors ();
 
         subEditors = new TEditor[subEditorTargets.Length];

@@ -66,4 +66,15 @@ public class AllConditions : ResettableScriptableObject {
         return globalCondition.satisfied == requiredCondition.satisfied;
     }
 
+	public static void CheckConditionAndSet(Condition addCondition)
+	{
+		Condition[] allConditions = Instance.conditions;
+
+		for (int i = 0; i < allConditions.Length; i++) {
+			if (allConditions [i].hash == addCondition.hash) {
+				allConditions [i].satisfied = true;
+			}
+		}
+	}
+
 }

@@ -8,4 +8,12 @@ public class FriendShipCondition : ScriptableObject {
 	public int requireFriendly = 0;
 	public Condition[] addCondition = new Condition[0];
 
+	public void CheckAndFix()
+	{
+		for (int i = 0; i < addCondition.Length; i++) {
+
+			AllConditions.CheckConditionAndSet (addCondition[i]);
+		}
+	}
+
 }

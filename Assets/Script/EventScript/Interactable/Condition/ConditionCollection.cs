@@ -30,6 +30,8 @@ public class ConditionCollection : ScriptableObject
         return true;
     }
 
+
+
     public void InvokeConditionReaction()
     {
         isFirst = false;
