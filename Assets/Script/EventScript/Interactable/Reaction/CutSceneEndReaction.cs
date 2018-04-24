@@ -27,6 +27,7 @@ public class CutSceneEndReaction : DelayedReaction
 			canvas.alpha = 0.0f;
 			yield return null;
 
+
 		} else {
 			while (currentTime + fadeTime > Time.time) {
 				
