@@ -18,7 +18,6 @@ public class Inventory : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		image.GetComponent<
 	}
 	
 	// Update is called once per frame

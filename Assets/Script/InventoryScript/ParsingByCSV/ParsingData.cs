@@ -100,6 +100,28 @@ public class ParsingData : ScriptableObject {
         return item;
     }
 
+    // ID값에 맞는 이름을 반환
+    public string GetNameByID(string itemID)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i]["ID"] as string == itemID)
+                return list[i]["NAME"] as string;
+        }
+        return "####";
+    }
+
+    // ID값에 맞는 설명을 반환
+    public string GetExplanationByID(string itemID)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i]["ID"] as string == itemID)
+                return list[i]["EXPLAINATION"] as string;
+        }
+        return "####";
+    }
+
     //================================================ 비공개 메서드 정의 ======================================================//
 
 
