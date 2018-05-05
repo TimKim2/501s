@@ -3477,7 +3477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98177a6b11db446039eff14ad3c4c38a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Setting: {fileID: 1014588349}
 --- !u!114 &1237934075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3493,6 +3492,20 @@ MonoBehaviour:
   dialogue: "\uC544\uB2C8 \uBB50\uB77C\uACE0? \uC57C \uC7A0\uAE50\uB9CC\u2026.!"
   characterName: "\uC8FC\uB155"
   characterImage: {fileID: 21300000, guid: 35c163259b6724b6bbba9b278151f787, type: 3}
+--- !u!114 &1253217433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bfcd6253f76946df8027da020f510d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  condition: {fileID: 114451064113810776, guid: 8679bc7b1198b41268ca94121e6a7b5a,
+    type: 2}
 --- !u!114 &1280220105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3762,6 +3775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentReactionCollection: {fileID: 0}
+  cutSceneName: 0
 --- !u!4 &1495386009
 Transform:
   m_ObjectHideFlags: 0
@@ -4384,6 +4398,8 @@ MonoBehaviour:
   nameFrameDisplayer: {fileID: 464465688}
   nameText: {fileID: 464465690}
   reactionButton: {fileID: 10095243}
+  mapPannel: {fileID: 0}
+  mapText: {fileID: 0}
 --- !u!114 &1622213791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5598,6 +5614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reactions:
+  - {fileID: 1253217433}
   - {fileID: 1708076645}
   - {fileID: 1910345177}
   - {fileID: 814442112}

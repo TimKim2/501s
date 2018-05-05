@@ -228,6 +228,19 @@ GameObject:
   m_PrefabParentObject: {fileID: 1969867534222752, guid: c4fca9ec336954464a1d9417bb261995,
     type: 2}
   m_PrefabInternal: {fileID: 1254766742}
+--- !u!114 &578842468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7d5459756844a4581221f561485137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  newReactionCollection: {fileID: 1154777234}
 --- !u!1 &651650729
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +249,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 651650730}
+  - component: {fileID: 651650731}
   m_Layer: 0
   m_Name: CutSceneController
   m_TagString: Untagged
@@ -258,6 +272,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &651650731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 651650729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb682924f9c5747799a7d2adbede8940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &712631742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,6 +521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentReactionCollection: {fileID: 0}
+  cutSceneName: 0
 --- !u!4 &1074523684
 Transform:
   m_ObjectHideFlags: 0
@@ -1432,6 +1458,7 @@ MonoBehaviour:
   - {fileID: 105924761}
   - {fileID: 1058438800}
   - {fileID: 2023734182}
+  - {fileID: 578842468}
   delaytime: 0
 --- !u!114 &1905549019
 MonoBehaviour:
@@ -1609,6 +1636,8 @@ MonoBehaviour:
   nameFrameDisplayer: {fileID: 0}
   nameText: {fileID: 0}
   reactionButton: {fileID: 1921998346}
+  mapPannel: {fileID: 0}
+  mapText: {fileID: 0}
 --- !u!114 &2023734182
 MonoBehaviour:
   m_ObjectHideFlags: 0
