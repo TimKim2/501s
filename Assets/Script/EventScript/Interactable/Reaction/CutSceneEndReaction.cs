@@ -33,7 +33,6 @@ public class CutSceneEndReaction : DelayedReaction
 				
 				canvas.alpha -= (float)((float)Time.deltaTime / fadeTime);
 
-				Debug.Log (canvas.alpha);
 				yield return null;
 			}
 		}
