@@ -2,12 +2,13 @@
 
 public class UIShowReaction : DelayedReaction
 {
-
-    public GameObject[] UI;
-
+    private UICaching uiCaching;
+    
     protected override void ImmediateReaction()
     {
-        foreach (var ui in UI)
+        uiCaching = GameObject.Find("UpperUI").GetComponent<UICaching>();
+       
+        foreach (var ui in uiCaching.GetUI())
             ui.gameObject.SetActive(true);
     }
 }
