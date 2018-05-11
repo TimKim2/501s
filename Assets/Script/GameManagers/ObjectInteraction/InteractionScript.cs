@@ -6,18 +6,18 @@ using UnityEngine.UI;
 public class InteractionScript : MonoBehaviour {
 
     // HUD UI를 표시하는 canvas
-    private Transform canvas;
+	protected Transform canvas;
 
     // UI를 표시하는 NPC 객체
-    private Transform parentObject;
+	protected Transform parentObject;
 
     // NPC 객체가 가지는 UI 목록
     public List<Button> list;
 	public ReactionCollection reaction;
 
-    private List<Button> conShowedUI = new List<Button>();
+	protected List<Button> conShowedUI = new List<Button>();
 
-    private void Start()
+	protected void Start()
     {
         canvas = GameObject.Find("HUD_Canvas").GetComponent<Transform>();
 
@@ -25,7 +25,7 @@ public class InteractionScript : MonoBehaviour {
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+	protected void OnTriggerEnter2D(Collider2D collision)
     {
         // 상호작용이 가능한 거리로 플레이어가 접근
         if(collision.tag == "Player")
@@ -59,7 +59,7 @@ public class InteractionScript : MonoBehaviour {
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+	protected void OnTriggerExit2D(Collider2D collision)
     {
         // 상호작용이 불가능한 거리로 플레이어가 이동
         if (collision.tag == "Player")
