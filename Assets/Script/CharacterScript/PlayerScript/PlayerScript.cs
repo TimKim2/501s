@@ -8,10 +8,10 @@ public class PlayerScript : CharacterScript {
     Vector2 movePoint;
 
     // 현재 이동 중인지 체크
-    bool isMoving = false;
+    //bool isMoving = false;
+
 
     // 이동속도
-    private float speed;
 
     // 현재 상태 표시
     
@@ -23,6 +23,7 @@ public class PlayerScript : CharacterScript {
     // 유저가 클릭한 좌표를 플레이어 스크립트에 전달합니다.
     public override void Move(Vector2 touchPoint, float speed)
     {
+		Debug.Log("PlayerMove");
         // 이동 목표 좌표를 터치 좌표로 지정
         movePoint = touchPoint;
         // 이동 목표 좌표까지 이동할 속도 지정
@@ -35,11 +36,12 @@ public class PlayerScript : CharacterScript {
         ChangeAnimation();
     }
 
+
     // UI 클릭 등에 의한 정지
     public void Stop()
     {
         // 이동 정지
-        isMoving = false;
+		isMoving = false;
 
         // 정지 애니메이션 수행
         ChangeAnimation();
@@ -150,4 +152,8 @@ public class PlayerScript : CharacterScript {
             mode = BEHAVIOR_MODE.IDLE;
         }
     }
+
+	public bool getIsMoving(){
+		return isMoving;
+	}
 }

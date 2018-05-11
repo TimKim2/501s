@@ -21,9 +21,9 @@ public class CharacterDisplayer : MonoBehaviour {
 
     public void DrawImage(Sprite sprite, string name)
     {
-		characterBodyImage.gameObject.SetActive (true);
+		//characterBodyImage.gameObject.SetActive (true);
 
-        characterBodyImage.sprite = sprite;
+        //characterBodyImage.sprite = sprite;
         
         ImediateStopTransition();
         if(sprite)

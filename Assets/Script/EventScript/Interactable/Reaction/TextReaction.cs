@@ -15,6 +15,7 @@ public class TextReaction : DelayedReaction
 
     protected override void ImmediateReaction()
     {
+		Debug.Log (dialogue);
         FSLocator.textDisplayer.Say(dialogue, characterName);
         FSLocator.characterDisplayer.DrawImage(characterImage, characterName);
     }

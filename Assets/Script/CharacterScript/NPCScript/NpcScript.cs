@@ -23,7 +23,7 @@ public class NpcScript : CharacterScript {
     private int moveDistanceIndex = 0;
 
     // 이동속도
-    private float speed = 1.5f;
+   // private float speed = 1.5f;
 
     // ******************************* 메서드 정의 **********************************
 
@@ -39,15 +39,21 @@ public class NpcScript : CharacterScript {
         firstPosition = trans.position;
 
         // NPC Idle 코루틴 시작
-        StartCoroutine(Idle_Move());
+        //StartCoroutine(Idle_Move());
     }
 
     // 해당 좌표로 이동하는 함수
     public override void Move(Vector2 movePoint, float speed)
     {
+		Debug.Log ("NPC MOVE1");
+		this.speed = speed;
         // 해당 좌표로 해당 속도를 가지고 이동
-        trans.position = Vector3.MoveTowards(trans.position, new Vector3(movePoint.x, movePoint.y, movePoint.y), speed* Time.deltaTime);
+		isMoving = true;
+        //trans.position = Vector3.MoveTowards(trans.position, new Vector3(movePoint.x, movePoint.y, movePoint.y), speed* Time.deltaTime);
+		StartCoroutine(MoveToDestination(movePoint));
     }
+
+
 
     IEnumerator Idle_Move()
     {

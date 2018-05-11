@@ -14,7 +14,13 @@ public abstract class CharacterScript : MonoBehaviour {
     protected Rigidbody2D rig2D;
 
 	public enum BEHAVIOR_MODE { IDLE, MOVE_TOPLEFT, MOVE_TOPRIGHT, MOVE_BOTLEFT, MOVE_BOTRIGHT };
-	public BEHAVIOR_MODE start_dir;
+	public BEHAVIOR_MODE startDir;
+
+	public bool isMoving = false;
+
+
+
+	protected float speed = 1.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -29,10 +35,11 @@ public abstract class CharacterScript : MonoBehaviour {
         // CharacterSript를 상속하는 클래스의 Start() 메서드에서 사용할 내용들을 템플릿 메서드 패턴으로 대체한다.
         TemplateStart();
 
-		if (start_dir == null)
+		if (startDir == null)
 			return;
+	
 
-		switch (start_dir) {
+		switch (startDir) {
 		case BEHAVIOR_MODE.MOVE_BOTLEFT:
 			anim.SetTrigger ("Idle_BotLeft");
 			break;
@@ -46,6 +53,7 @@ public abstract class CharacterScript : MonoBehaviour {
 			anim.SetTrigger ("Idle_TopRight");
 			break;
 		}
+
     }
 
     // CharacterSript를 상속하는 클래스의 Start() 메서드에서 재정의할 내용들을 여기에 작성합니다.
@@ -54,4 +62,30 @@ public abstract class CharacterScript : MonoBehaviour {
 
     // 현재 객체의 이동 함수
     public abstract void Move(Vector2 movePoint, float speed);
+
+	public bool getIsMoving(){
+		return isMoving;
+	}
+
+	public void MoveReaction(Vector2 movePoint, float speed)
+	{
+		Debug.Log ("NPC MOVE1");
+		this.speed = speed;
+		// 해당 좌표로 해당 속도를 가지고 이동
+		isMoving = true;
+		//trans.position = Vector3.MoveTowards(trans.position, new Vector3(movePoint.x, movePoint.y, movePoint.y), speed* Time.deltaTime);
+		StartCoroutine(MoveToDestination(movePoint));
+	}
+
+	protected IEnumerator MoveToDestination(Vector2 movePoint){
+
+		while(!(trans.position.x == movePoint.x || trans.position.y == movePoint.y)){
+			Debug.Log ("NPC MOVE");
+			trans.position = Vector3.MoveTowards(trans.position, new Vector3(movePoint.x, movePoint.y, movePoint.y), speed* Time.deltaTime);
+			trans.position = new Vector3(trans.position.x, trans.position.y, trans.position.y);
+			yield return null;
+		}
+		isMoving = false;
+
+	}
 }

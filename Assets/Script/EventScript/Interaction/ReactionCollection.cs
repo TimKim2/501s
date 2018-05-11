@@ -99,22 +99,22 @@ public class ReactionCollection : MonoBehaviour
                     else
                     {
                         startIndex = i + 1;
-                        //FSLocator.controlManager.m_Button.onClick.RemoveAllListeners();
-                        //FSLocator.controlManager.m_Button.onClick.AddListener(delegate { this.React(); });
+						FSLocator.textDisplayer.reactionButton.onClick.RemoveAllListeners();
+						FSLocator.textDisplayer.reactionButton.onClick.AddListener(delegate { this.React(); });
                         delayedReaction.React(this);
                         return;
                     }
                 }
 
-                else if (reactions[i].GetType().Name == "AnimationDesReaction")
+				else if (reactions[i].GetType().Name == "CharacterMoveReaction")
                 {
                     if (startIndex == reactions.Length - 1)
                         break;
                     else
                     {
                         startIndex = i + 1;
-                        //FSLocator.controlManager.m_Button.onClick.RemoveAllListeners();
-                        //FSLocator.controlManager.m_Button.onClick.AddListener(delegate { this.React(); });
+						FSLocator.textDisplayer.reactionButton.onClick.RemoveAllListeners();
+						FSLocator.textDisplayer.reactionButton.onClick.AddListener(delegate { this.React(); });
                         delayedReaction.React(this);
                         return;
                     }

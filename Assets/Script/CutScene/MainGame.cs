@@ -10,6 +10,7 @@ public class MainGame : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//blackPanel.SetActive (true);
+		startReacitonCollection.InitIndex();
 		startReacitonCollection.React ();
 
 	}
