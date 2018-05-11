@@ -14,7 +14,7 @@ public class PlayerScript : CharacterScript {
     private float speed;
 
     // 현재 상태 표시
-    private enum BEHAVIOR_MODE { IDLE, MOVE_TOPLEFT, MOVE_TOPRIGHT, MOVE_BOTLEFT, MOVE_BOTRIGHT };
+    
     private BEHAVIOR_MODE mode;
 
 

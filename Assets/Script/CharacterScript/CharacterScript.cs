@@ -13,6 +13,8 @@ public abstract class CharacterScript : MonoBehaviour {
     // 현재 객체의 Rigidbody2D 콤포넌트
     protected Rigidbody2D rig2D;
 
+	public enum BEHAVIOR_MODE { IDLE, MOVE_TOPLEFT, MOVE_TOPRIGHT, MOVE_BOTLEFT, MOVE_BOTRIGHT };
+	public BEHAVIOR_MODE start_dir;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +28,24 @@ public abstract class CharacterScript : MonoBehaviour {
         // CharacterSript를 상속하는 클래스에서 Start() 메서드를 사용하면 위의 콤포넌트 캐싱이 가려진다.
         // CharacterSript를 상속하는 클래스의 Start() 메서드에서 사용할 내용들을 템플릿 메서드 패턴으로 대체한다.
         TemplateStart();
+
+		if (start_dir == null)
+			return;
+
+		switch (start_dir) {
+		case BEHAVIOR_MODE.MOVE_BOTLEFT:
+			anim.SetTrigger ("Idle_BotLeft");
+			break;
+		case BEHAVIOR_MODE.MOVE_BOTRIGHT:
+			anim.SetTrigger ("Idle_BotRight");
+			break;
+		case BEHAVIOR_MODE.MOVE_TOPLEFT:
+			anim.SetTrigger ("Idle_TopLeft");
+			break;
+		case BEHAVIOR_MODE.MOVE_TOPRIGHT:
+			anim.SetTrigger ("Idle_TopRight");
+			break;
+		}
     }
 
     // CharacterSript를 상속하는 클래스의 Start() 메서드에서 재정의할 내용들을 여기에 작성합니다.

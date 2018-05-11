@@ -30,6 +30,9 @@ public class CameraShaking : MonoBehaviour
 		OriginalPos = transform.position;
 		OriginalRot = transform.rotation;
 
+
+		this.GetComponent<MainCamera> ().enabled = false;
+
 		StartCoroutine("ProcessShake");
 	}
 
@@ -37,6 +40,7 @@ public class CameraShaking : MonoBehaviour
 	{
 		transform.position = OriginalPos;
 		transform.rotation = OriginalRot;
+
 		StopCoroutine("ProcessShake");
 		isShakeRunning = false;
 	}
@@ -45,14 +49,19 @@ public class CameraShaking : MonoBehaviour
 	{
 		if (!isShakeRunning)
 		{
+			Debug.Log ("Is Shaking?");
 			isShakeRunning = true;
 			float currentShakeIntensity = shakeIntensity;
+			//Debug.Log (currentShakeIntensity);
 
 			while (currentShakeIntensity > 0)
 			{
+				Debug.Log ("Shaking");
 				if (shakePosition)
 				{
-					transform.position = OriginalPos + Random.insideUnitSphere * currentShakeIntensity * .02f;
+					transform.position = OriginalPos + Random.insideUnitSphere * currentShakeIntensity *.02f;
+					Debug.Log (transform.position);
+					//Debug.Log (Random.insideUnitSphere);
 				}
 				if (shakeRotation)
 				{
@@ -66,6 +75,8 @@ public class CameraShaking : MonoBehaviour
 			}
 
 			isShakeRunning = false;
+
+			this.GetComponent<MainCamera> ().enabled = true;
 		}
 	}
 }
