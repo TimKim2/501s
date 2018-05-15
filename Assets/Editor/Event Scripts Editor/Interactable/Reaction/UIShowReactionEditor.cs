@@ -10,6 +10,6 @@ public class UIShowReactionEditor : ReactionEditor
 
     protected override string GetFoldoutLabel()
     {
-        return "=== UI Show Reaction ===";
+        return "UI Show Reaction";
     }
 }

@@ -8,6 +8,6 @@ public class UIHideReactionEditor : ReactionEditor
 {
     protected override string GetFoldoutLabel()
     {
-        return "=== UI Hide Reaction ===";
+        return "UI Hide Reaction";
     }
 }
