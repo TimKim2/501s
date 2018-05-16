@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Name: AllConditions
   m_EditorClassIdentifier: 
   conditions:
-  - {fileID: 114451064113810776}
-  - {fileID: 114497912637552600}
-  - {fileID: 114602050057851672}
-  - {fileID: 114014820342693626}
---- !u!114 &114014820342693626
+  - {fileID: 114165357636564036}
+  - {fileID: 114946393642116924}
+  - {fileID: 114442340558596094}
+  - {fileID: 114406548492452030}
+  - {fileID: 114452384328385530}
+  - {fileID: 114267546284188178}
+--- !u!114 &114165357636564036
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -25,12 +27,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
-  m_Name: 4_4
+  m_Name: New Condition
   m_EditorClassIdentifier: 
-  description: 4_4
+  description: New Condition
   satisfied: 0
-  hash: -1061936784
---- !u!114 &114451064113810776
+  hash: -1182492049
+--- !u!114 &114267546284188178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -39,26 +41,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
-  m_Name: 1_1Dialogue
+  m_Name: New Condition
   m_EditorClassIdentifier: 
-  description: 1_1Dialogue
-  satisfied: 1
-  hash: -1628926622
---- !u!114 &114497912637552600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
-  m_Name: 2_2
-  m_EditorClassIdentifier: 
-  description: 2_2
+  description: New Condition
   satisfied: 0
-  hash: 760936695
---- !u!114 &114602050057851672
+  hash: -1182492049
+--- !u!114 &114406548492452030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -67,8 +55,64 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
-  m_Name: 3
+  m_Name: New Condition
   m_EditorClassIdentifier: 
-  description: 3
+  description: New Condition
   satisfied: 0
-  hash: 1842515611
+  hash: -1182492049
+--- !u!114 &114442340558596094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Name: New Condition
+  m_EditorClassIdentifier: 
+  description: New Condition
+  satisfied: 0
+  hash: -1182492049
+--- !u!114 &114452384328385530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Name: New Condition
+  m_EditorClassIdentifier: 
+  description: New Condition
+  satisfied: 0
+  hash: -1182492049
+--- !u!114 &114629100282694746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Name: Insert Condition
+  m_EditorClassIdentifier: 
+  description: Insert Condition
+  satisfied: 0
+  hash: 634925744
+--- !u!114 &114946393642116924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Name: New Condition
+  m_EditorClassIdentifier: 
+  description: New Condition
+  satisfied: 0
+  hash: -1182492049

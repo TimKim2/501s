@@ -2,14 +2,16 @@
 
 public class StopMoveReaction : DelayedReaction
 {
+	raycast m_raycast;
+
 	protected override void SpecificInit()
 	{
-
+		m_raycast = FindObjectOfType<raycast> ();
 	}
 
 
 	protected override void ImmediateReaction()
 	{
-		//GameObject.FindGameObjectWithTag ("Player").GetComponent<TVNTPlayerController> ().enabled = false;
+		m_raycast.enabled = false;
 	}
 }
