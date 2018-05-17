@@ -100,7 +100,7 @@ public class ParsingData : ScriptableObject {
         return item;
     }
 
-    // ID값에 맞는 이름을 반환
+    // ID의 item에 해당하는 NAME 노드 값
     public string GetNameByID(string itemID)
     {
         for (int i = 0; i < list.Count; i++)
@@ -108,18 +108,30 @@ public class ParsingData : ScriptableObject {
             if (list[i]["ID"] as string == itemID)
                 return list[i]["NAME"] as string;
         }
-        return "####";
+        return "No Name!!";
     }
 
-    // ID값에 맞는 설명을 반환
+    // ID의 item에 해당하는 EXPLANATION 노드 값
     public string GetExplanationByID(string itemID)
     {
         for (int i = 0; i < list.Count; i++)
         {
             if (list[i]["ID"] as string == itemID)
-                return list[i]["EXPLAINATION"] as string;
+                return list[i]["EXPLANATION"] as string;
         }
-        return "####";
+        return "No Explanation!!";
+    }
+
+    // ID의 item에 해당하는 MIX 노드 값
+    public string GetMixByID(string itemID)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i]["ID"] as string == itemID)
+                return list[i]["MIX"] as string;
+        }
+
+        return "No Mix Value!!";
     }
 
     //================================================ 비공개 메서드 정의 ======================================================//

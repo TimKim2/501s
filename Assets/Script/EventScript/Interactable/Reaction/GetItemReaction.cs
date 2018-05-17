@@ -5,10 +5,11 @@ using UnityEngine;
 public class GetItemReaction : DelayedReaction
 {
     public string itemID;
-    public ContentScript test;
+    private ContentScript playerInventory;
 
     protected override void ImmediateReaction()
     {
-        test.GetItem(itemID);
+        playerInventory = GameObject.Find("ItemDisplayer").GetComponent<ContentScript>();
+        playerInventory.GetItem(itemID);
     }
 }

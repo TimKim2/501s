@@ -34,9 +34,6 @@ public abstract class CharacterScript : MonoBehaviour {
         // CharacterSript를 상속하는 클래스에서 Start() 메서드를 사용하면 위의 콤포넌트 캐싱이 가려진다.
         // CharacterSript를 상속하는 클래스의 Start() 메서드에서 사용할 내용들을 템플릿 메서드 패턴으로 대체한다.
         TemplateStart();
-
-		if (startDir == null)
-			return;
 	
 
 		switch (startDir) {

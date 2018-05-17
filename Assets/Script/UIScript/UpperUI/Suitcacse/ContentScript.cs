@@ -41,6 +41,16 @@ public class ContentScript : MonoBehaviour {
             conSlot++;
         }
     }
+    
+
+    // 현재 가지고 있는 아이템 목록 중 조합이 불가능한 아이템 표시
+    public void IsMixOK()
+    {
+        // 각 slot 마다 가지고 있는 물건이 조합 가능한지 판별
+        // slot이 비어있으면 아무 작동 x
+        foreach (GameObject slot in slots)
+            slot.GetComponent<SlotScript>().IsMixOK();
+    }
 
     // ========================================================== 비공개 메서드 정의 ====================================================
 
@@ -57,11 +67,14 @@ public class ContentScript : MonoBehaviour {
         }
     }
 
+    // 전체 아이템 목록의 scriptable object 에서 해당 IO에 해당하는 item의 이름 반환
     private string GetName(string ID)
     {
         Debug.Log (allData.GetNameByID(ID));
         return allData.GetNameByID(ID);
     }
+
+    // 전체 아이템 목록의 scriptable object 에서 해당 IO에 해당하는 itee의 설명 반환
     private string GetExplanation(string ID)
     {
         Debug.Log(allData.GetExplanationByID(ID));
