@@ -100,13 +100,13 @@ public class CSVReadWindow : EditorWindow {
         {
             // asset 정보를 담을 인스턴스 생성
             var instance = CreateInstance<ParsingData>();
-            
+
             // csv 파일에서 정보를 추출하여 생성할 asset 정보 생성
             instance.CreateAssetInfo(csvFilePath);
- 
+
             // 객체 정보를 담은 인스턴스 asset 형식으로 저장
             AssetDatabase.CreateAsset(instance, assetPath);
-            AssetDatabase.Refresh(); 
+            AssetDatabase.Refresh();
         }
 
         //selected = EditorGUILayout.Popup("Label", selected, options);

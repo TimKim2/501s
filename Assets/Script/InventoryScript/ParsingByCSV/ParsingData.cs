@@ -28,7 +28,6 @@ public class ParsingData : ScriptableObject {
     {
         // csv 파일 경로를 설정한다.
         SetFilePath(path);
-
         // 해당 경로의 csv 파일로부터 정보를 읽어들여 파싱한다.
         Parsing();
     }
@@ -159,6 +158,12 @@ public class ParsingData : ScriptableObject {
     // csv 파일로부터 파싱하여 딕셔너리에 넣는다.
     private void Parsing()
     {
+        // Scriptable object 객체가 만들어지면, 처음에 무조건 enable 함수가 호출되는듯 함.
+        // CreateAssetInfo 함수 내부에서 csv 파일과 연결을 맺는데, 그 전에 자동적으로 호출되는 enable에서 csv 파싱에 접근하면서 에러가 발생한 듯.
+        // 따라서 초기 csvFilePath가 지정되지 않은 상태의 Parsing 함수 호출을 막으면 에러가 발생하지 않음.
+        if (csvFilePath == "" || csvFilePath == null)
+            return;
+
         // 기존의 리스트를 비운다.
         list.Clear();
 
