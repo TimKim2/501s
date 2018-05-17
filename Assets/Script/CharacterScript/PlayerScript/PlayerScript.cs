@@ -17,7 +17,6 @@ public class PlayerScript : CharacterScript {
     
     private BEHAVIOR_MODE mode;
 
-
     // ******************************* 공개 메서드 정의 **********************************
 
     // 유저가 클릭한 좌표를 플레이어 스크립트에 전달합니다.
@@ -40,6 +39,8 @@ public class PlayerScript : CharacterScript {
     // UI 클릭 등에 의한 정지
     public void Stop()
     {
+		Debug.Log("Stop!");
+
         // 이동 정지
 		isMoving = false;
 

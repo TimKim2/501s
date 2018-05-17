@@ -64,15 +64,6 @@ public abstract class CharacterScript : MonoBehaviour {
 		return isMoving;
 	}
 
-	public void MoveReaction(Vector2 movePoint, float speed)
-	{
-		Debug.Log ("NPC MOVE1");
-		this.speed = speed;
-		// 해당 좌표로 해당 속도를 가지고 이동
-		isMoving = true;
-		//trans.position = Vector3.MoveTowards(trans.position, new Vector3(movePoint.x, movePoint.y, movePoint.y), speed* Time.deltaTime);
-		StartCoroutine(MoveToDestination(movePoint));
-	}
 
 	protected IEnumerator MoveToDestination(Vector2 movePoint){
 

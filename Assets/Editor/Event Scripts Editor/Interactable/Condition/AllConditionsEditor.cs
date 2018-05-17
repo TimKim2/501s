@@ -26,6 +26,8 @@ public class AllConditionsEditor : Editor
     private ConditionEditor[] conditionEditors;
     private AllConditions allConditions;
     private string newConditionDescription = "New Condition";
+	private string insertConditionDescription = "Insert Condition";
+	private int insertNumber = 0;
 
 
     private const string creationPath = "Assets/Resources/AllConditions.asset";
@@ -100,7 +102,26 @@ public class AllConditionsEditor : Editor
             AddCondition (newConditionDescription);
             newConditionDescription = "New Condition";
         }
+
         EditorGUILayout.EndHorizontal ();
+
+		EditorGUILayout.BeginHorizontal ();
+		insertConditionDescription = EditorGUILayout.TextField (GUIContent.none, insertConditionDescription);
+
+		EditorGUILayout.EndHorizontal ();
+
+		EditorGUILayout.BeginHorizontal ();
+
+		insertNumber = EditorGUILayout.IntField (GUIContent.none, insertNumber);
+
+
+		if (GUILayout.Button ("+", GUILayout.Width (buttonWidth)))
+		{
+			AddCondition (insertConditionDescription, insertNumber);
+			insertConditionDescription = "Insert Condition";
+		}
+
+		EditorGUILayout.EndHorizontal ();
     }
 
 
@@ -153,6 +174,29 @@ public class AllConditionsEditor : Editor
 
         SetAllConditionDescriptions ();
     }
+
+	private void AddCondition(string description, int insertNumber)
+	{
+		if (!AllConditions.Instance)
+		{
+			Debug.LogError("AllConditions has not been created yet.");
+			return;
+		}
+
+		Condition newCondition = ConditionEditor.CreateCondition (description);
+		newCondition.name = description;
+
+		Undo.RecordObject(newCondition, "Created new Condition");
+
+		AssetDatabase.AddObjectToAsset(newCondition, AllConditions.Instance);
+		AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(newCondition));
+
+		ArrayUtility.Insert(ref AllConditions.Instance.conditions, insertNumber, newCondition);
+
+		EditorUtility.SetDirty(AllConditions.Instance);
+
+		SetAllConditionDescriptions ();
+	}
 
 
     public static void RemoveCondition(Condition condition)
