@@ -15,7 +15,7 @@ public class ContentScript : MonoBehaviour {
     private GameObject[] slots;
 
     // 전체 아이템에 대한 정보
-    public ParsingData allData;
+    [HideInInspector] public ParsingData allData;
 
 
     // ========================================================== 공개 메서드 정의 ====================================================
@@ -56,6 +56,7 @@ public class ContentScript : MonoBehaviour {
 
     private void Start()
     {
+        // 자식에 포함되는 모든 slot 캐싱
         Transform trans = content.transform;
         maxSlot = trans.childCount;
 
@@ -65,6 +66,10 @@ public class ContentScript : MonoBehaviour {
             slots[num] = trans.GetChild(num).gameObject;
             slots[num].GetComponent<SlotScript>().InitSlot();
         }
+
+        // All Item List scriptable object 캐싱
+        allData = Resources.Load("CSVData/All Item List Asset") as ParsingData;
+        
     }
 
     // 전체 아이템 목록의 scriptable object 에서 해당 IO에 해당하는 item의 이름 반환
