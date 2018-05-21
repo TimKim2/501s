@@ -77,6 +77,18 @@ public class ReactionCollection : MonoBehaviour
                         return;
                     }
                 }
+				if (reactions [i].GetType ().Name == "ChoiceTextReaction") {
+					if (startIndex == reactions.Length - 1) {
+						Debug.Log ("Break");
+						break;
+					} else {
+						startIndex = i + 1;
+						delayedReaction.React(this);
+						FSLocator.textDisplayer.reactionButton.onClick.RemoveAllListeners();
+						FSLocator.textDisplayer.reactionButton.enabled = false;
+						return;
+					}
+				}
                 else if (reactions[i].GetType().Name == "DelayReaction")
                 {
                     if (startIndex == reactions.Length - 1)
