@@ -21,6 +21,7 @@ public class ChoiceTextReaction : DelayedReaction
 	protected override void ImmediateReaction()
 	{
 		Debug.Log (dialogue);
+		FSLocator.textDisplayer.choiceFrame.ShowChoiceFrame (firstChoice, secondChoice, firstReactionCollection, secondReactionCollection);
 		FSLocator.textDisplayer.Say(dialogue, characterName);
 		FSLocator.characterDisplayer.DrawImage(characterImage, characterName);
 
