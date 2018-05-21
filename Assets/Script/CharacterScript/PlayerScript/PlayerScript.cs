@@ -7,10 +7,6 @@ public class PlayerScript : CharacterScript {
     // 현재 이동할 목적지 좌표
     Vector2 movePoint;
 
-    // 현재 이동 중인지 체크
-    //bool isMoving = false;
-
-
     // 이동속도
 
     // 현재 상태 표시
@@ -153,8 +149,4 @@ public class PlayerScript : CharacterScript {
             mode = BEHAVIOR_MODE.IDLE;
         }
     }
-
-	public bool getIsMoving(){
-		return isMoving;
-	}
 }
