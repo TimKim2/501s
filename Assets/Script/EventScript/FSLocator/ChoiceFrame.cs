@@ -17,17 +17,13 @@ public class ChoiceFrame : MonoBehaviour {
 		this.secondText.text = secondText;
 
 		firstButton.onClick.AddListener(delegate{
+			transform.parent.GetComponent<TextDisplayer>().reactionButton.enabled = true;
 			firstReaction.InitAndReact();
-			transform.parent.GetComponent<TextDisplayer>().reactionButton.onClick.AddListener(delegate {
-				firstReaction.React();
-			});
 			HideChoiceFrame();
 		});
 		secondButton.onClick.AddListener (delegate {
+			transform.parent.GetComponent<TextDisplayer>().reactionButton.enabled = true;
 			secondReaction.InitAndReact ();
-			transform.parent.GetComponent<TextDisplayer>().reactionButton.onClick.AddListener(delegate {
-				secondReaction.React();
-			});
 			HideChoiceFrame();
 		});
 
