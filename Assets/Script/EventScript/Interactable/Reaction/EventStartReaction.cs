@@ -3,10 +3,12 @@
 public class EventStartReaction : DelayedReaction
 {
 	//CharacterManager characterManager;
+	raycast m_raycast;
 
 	protected override void SpecificInit()
 	{
 		//TVNTManager.instance.ReferenceTVNTManager (ref characterManager);
+		m_raycast = FindObjectOfType<raycast>();
 	}
 
 
@@ -16,6 +18,8 @@ public class EventStartReaction : DelayedReaction
 		FSLocator.textDisplayer.reactionButton.gameObject.SetActive (true);
 
 		FSLocator.textDisplayer.ShowDialogueHolder ();
+
+		m_raycast.enabled = false;
 
 		//TutorialController.Instance.HideButton ();
 

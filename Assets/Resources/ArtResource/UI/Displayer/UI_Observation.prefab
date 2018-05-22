@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224843366157146458}
   - component: {fileID: 222976049225387038}
+  - component: {fileID: 114970334415571386}
   - component: {fileID: 114090228308912886}
   - component: {fileID: 114735542983852754}
   m_Layer: 5
@@ -97,6 +98,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114970334415571386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1715757705406704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3089a07084d884d9aa4dc559d3c306ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentVector: {x: 0, y: 0, z: 0}
 --- !u!222 &222976049225387038
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -109,15 +122,15 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1715757705406704}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3266999, y: 1.3266999, z: 1.3266999}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -292.2, y: -168.2}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 213, y: -5.3}
+  m_SizeDelta: {x: 24, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}

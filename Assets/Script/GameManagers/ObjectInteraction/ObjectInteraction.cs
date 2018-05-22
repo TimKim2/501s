@@ -47,9 +47,11 @@ public class ObjectInteraction : MonoBehaviour {
 				// 생성한 UI를 Canvas 하위로 이동
 				button.transform.SetParent(canvas);
 
-				// 생성한 UI 위치를 부모 객체 위로 이동
-				button.GetComponent<RectTransform>().anchoredPosition = new Vector2(parentObject.position.x, parentObject.position.y + 1.8f);
+				Debug.Log ("Show Name : " + transform.name);
 
+				// 생성한 UI 위치를 부모 객체 위로 이동
+				Vector3 myVector = transform.parent.position;
+				button.GetComponent<DynamicUI> ().SetVector (myVector);
 				button.onClick.RemoveAllListeners ();
 				button.onClick.AddListener(delegate {
 					reaction.InitIndex();

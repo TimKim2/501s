@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class DynamicUI : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	public Vector3 parentVector;
+	private Camera myCamera;
+	private Vector3 myVector;
+	private RectTransform myTransform;
+
+	public void LateUpdate(){
 		
+		transform.position = myCamera.WorldToScreenPoint (myVector);
 	}
+
+	public void OnEnable(){
+		myCamera = FindObjectOfType<Camera> ();
+
 	
-	// Update is called once per frame
-	void Update () {
-		
+		transform.position = myCamera.WorldToScreenPoint (myVector);
+		Debug.Log ("Create");
+	}
+
+	public void SetVector(Vector3 vector){
+		parentVector = vector;
+		myVector = new Vector3 (parentVector.x, parentVector.y + 1.0f, parentVector.z);
 	}
 }
