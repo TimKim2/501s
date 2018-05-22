@@ -15,6 +15,8 @@ public class NewPlayer : NewCharacter{
     // =========================================== 공개 메서드 ============================================
 
     // Use this for initialization
+    // Start() 함수에 작성할 내용을 이 함수에 작성할 것!!
+    // Start() 함수 작성 금지!!
     protected override void TemplateStart()
     {
         isMoving = false;
@@ -34,15 +36,22 @@ public class NewPlayer : NewCharacter{
     // 외부에서 (아마 대부분 조이스틱 스크립트) 플레이어로 전달하는 이동 정보에 대한 함수
     public void Move(Vector3 moveVector)
     {
+        // 이동 방향으로의 벡터 지정
         this.moveVector = moveVector;
+
+        // 이동 시작
         isMoving = true;
     }
 
     // 외부에서 (아마 대부분 조이스틱 스크립트) 플레이어로 전달하는 정지 정보에 대한 함수
     public void Stop()
     {
+        // 이동 정지
         isMoving = false;
-        this.moveVector = Vector3.zero;
+
+        // 정지 벡터(0, 0, 0)를 캐틱터로 전송
+        moveVector = Vector3.zero;
+        MoveToVector(moveVector);
 
         // 애니메이션 정지
         ChangeAnimation();
