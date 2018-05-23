@@ -16,8 +16,6 @@ public class raycast : MonoBehaviour {
         // 클릭 시..
 	    if(Input.GetMouseButtonDown(0))
         {
-			Debug.Log ("Click");
-
             // 클릭 좌표를 확인
             Vector3 touchPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ObjectInteraction : MonoBehaviour {
+public class ConditionObjectInteraction : MonoBehaviour {
 
 
 	// HUD UI를 표시하는 canvas
@@ -14,7 +14,7 @@ public class ObjectInteraction : MonoBehaviour {
 
 	// NPC 객체가 가지는 UI 목록
 	public List<Button> list;
-	public ReactionCollection reaction;
+	public Interactable interactable;
 
 	protected List<Button> conShowedUI = new List<Button>();
 
@@ -28,7 +28,6 @@ public class ObjectInteraction : MonoBehaviour {
 
 	protected void OnTriggerEnter2D(Collider2D collision)
 	{
-
 		// 상호작용이 가능한 거리로 플레이어가 접근
 		if(collision.tag == "Player")
 		{
@@ -51,8 +50,7 @@ public class ObjectInteraction : MonoBehaviour {
 				button.GetComponent<DynamicUI> ().SetVector (myVector);
 				button.onClick.RemoveAllListeners ();
 				button.onClick.AddListener(delegate {
-					reaction.InitIndex();
-					reaction.React();
+					interactable.Interact();
 				});
 
 			}
@@ -73,6 +71,6 @@ public class ObjectInteraction : MonoBehaviour {
 			conShowedUI.Clear();
 		}
 
-	
+
 	}
 }

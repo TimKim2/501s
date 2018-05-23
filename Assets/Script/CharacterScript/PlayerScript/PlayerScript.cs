@@ -35,8 +35,6 @@ public class PlayerScript : CharacterScript {
     // UI 클릭 등에 의한 정지
     public void Stop()
     {
-		Debug.Log("Stop!");
-
         // 이동 정지
 		isMoving = false;
 

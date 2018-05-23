@@ -12,82 +12,7 @@ MonoBehaviour:
   m_Name: AllConditions
   m_EditorClassIdentifier: 
   conditions:
-  - {fileID: 114165357636564036}
-  - {fileID: 114946393642116924}
-  - {fileID: 114442340558596094}
-  - {fileID: 114406548492452030}
-  - {fileID: 114452384328385530}
-  - {fileID: 114267546284188178}
---- !u!114 &114165357636564036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
-  m_Name: New Condition
-  m_EditorClassIdentifier: 
-  description: New Condition
-  satisfied: 0
-  hash: -1182492049
---- !u!114 &114267546284188178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
-  m_Name: New Condition
-  m_EditorClassIdentifier: 
-  description: New Condition
-  satisfied: 0
-  hash: -1182492049
---- !u!114 &114406548492452030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
-  m_Name: New Condition
-  m_EditorClassIdentifier: 
-  description: New Condition
-  satisfied: 0
-  hash: -1182492049
---- !u!114 &114442340558596094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
-  m_Name: New Condition
-  m_EditorClassIdentifier: 
-  description: New Condition
-  satisfied: 0
-  hash: -1182492049
---- !u!114 &114452384328385530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
-  m_Name: New Condition
-  m_EditorClassIdentifier: 
-  description: New Condition
-  satisfied: 0
-  hash: -1182492049
+  - {fileID: 114691834020707824}
 --- !u!114 &114629100282694746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +27,7 @@ MonoBehaviour:
   description: Insert Condition
   satisfied: 0
   hash: 634925744
---- !u!114 &114946393642116924
+--- !u!114 &114691834020707824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -111,8 +36,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
-  m_Name: New Condition
+  m_Name: 01_Clue_UnderTheTree
   m_EditorClassIdentifier: 
-  description: New Condition
+  description: 01_Clue_UnderTheTree
   satisfied: 0
-  hash: -1182492049
+  hash: 606786195

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Wholf : MonoBehaviour {
 
-	public ReactionCollection reaction;
+	public Interactable interactable;
 
 	public void OnTriggerEnter2D(Collider2D col)
 	{
 		if (col.tag == "Player") {
-			if (reaction) {
-				reaction.InitIndex ();
-				reaction.React ();
+			if (interactable) {
+				col.GetComponent<PlayerScript> ().Stop ();
+				interactable.Interact ();
 			}
 		}
 	}

@@ -57,8 +57,6 @@ public class ReactionCollection : MonoBehaviour
         {
             DelayedReaction delayedReaction = reactions[i] as DelayedReaction;
 
-			Debug.Log (reactions [i].GetType ().Name);
-			Debug.Log (i);
             if (delayedReaction)
             {
                 if (reactions[i].GetType().Name == "TextReaction")
@@ -82,10 +80,11 @@ public class ReactionCollection : MonoBehaviour
 						Debug.Log ("Break");
 						break;
 					} else {
+						Debug.Log ("ReactionFalse");
 						startIndex = i + 1;
 						delayedReaction.React(this);
 						FSLocator.textDisplayer.reactionButton.onClick.RemoveAllListeners();
-						FSLocator.textDisplayer.reactionButton.enabled = false;
+						FSLocator.textDisplayer.reactionButton.enabled = true;
 						return;
 					}
 				}
