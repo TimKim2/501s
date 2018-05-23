@@ -53,7 +53,8 @@ public abstract class NewCharacter : MonoBehaviour {
     // 따라서 좌표가 아닌, 전달받은 벡터 방향으로 이동하는 메서드도 필요하다.
     public void MoveToVector(Vector3 vector)
     {
-        trans.position += vector * speed * Time.deltaTime;
+        //trans.Translate(vector * *Time.deltaTime  speed);
+        rig2D.velocity = vector * speed;
 
         trans.position = new Vector3(trans.position.x, trans.position.y, trans.position.y);
     }
