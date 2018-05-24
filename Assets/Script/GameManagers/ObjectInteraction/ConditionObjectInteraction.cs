@@ -31,6 +31,7 @@ public class ConditionObjectInteraction : MonoBehaviour {
 		// 상호작용이 가능한 거리로 플레이어가 접근
 		if(collision.tag == "Player")
 		{
+			Debug.Log ("Condition + " + transform.parent.name);
 			// NPC가 이벤트 수행중이 아니라면, 현재 행동을 멈추고 플레이어를 바라본다.
 			// 저장된 UI 리스트에서 UI를 생성 (각 UI 생성 위치는 현재 무시..)
 			foreach(var ui in list)

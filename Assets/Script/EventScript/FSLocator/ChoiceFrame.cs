@@ -12,6 +12,7 @@ public class ChoiceFrame : MonoBehaviour {
 	public Button secondButton;
 
 	public void ShowChoiceFrame(string firstText, string secondText, ReactionCollection firstReaction, ReactionCollection secondReaction){
+		Debug.Log ("??");
 		gameObject.SetActive (true);
 		this.firstText.text = firstText;
 		this.secondText.text = secondText;

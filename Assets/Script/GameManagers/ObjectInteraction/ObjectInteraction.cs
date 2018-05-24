@@ -36,7 +36,7 @@ public class ObjectInteraction : MonoBehaviour {
 			// 저장된 UI 리스트에서 UI를 생성 (각 UI 생성 위치는 현재 무시..)
 			foreach(var ui in list)
 			{
-
+				Debug.Log ("NotCondition + " + transform.parent.name);
 				// 해당 UI 프리팹을 생성
 				Button button = Instantiate(ui, transform.position, transform.rotation);
 
@@ -46,7 +46,7 @@ public class ObjectInteraction : MonoBehaviour {
 				// 생성한 UI를 Canvas 하위로 이동
 				button.transform.SetParent(canvas);
 
-				FSLocator.uiContainer.InsertObservation (gameObject);
+				FSLocator.uiContainer.InsertObservation (button.gameObject);
 
 				// 생성한 UI 위치를 부모 객체 위로 이동
 				Vector3 myVector = transform.parent.position;
@@ -70,6 +70,7 @@ public class ObjectInteraction : MonoBehaviour {
 			foreach (var ui in conShowedUI)
 			{
 				if (ui != null) {
+					Debug.Log ("is Destroy?");
 					Destroy (ui.gameObject);
 				}
 			}

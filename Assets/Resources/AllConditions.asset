@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 114691834020707824}
+  - {fileID: 114734343718411078}
   - {fileID: 114443616160930716}
   - {fileID: 114596464125840714}
   - {fileID: 114377837576495626}
@@ -101,3 +102,17 @@ MonoBehaviour:
   description: 01_Clue_UnderTheTree
   satisfied: 0
   hash: 606786195
+--- !u!114 &114734343718411078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Name: 01.5_Clue_FindWatch
+  m_EditorClassIdentifier: 
+  description: 01.5_Clue_FindWatch
+  satisfied: 0
+  hash: 1281501836

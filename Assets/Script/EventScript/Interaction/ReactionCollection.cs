@@ -57,6 +57,9 @@ public class ReactionCollection : MonoBehaviour
         {
             DelayedReaction delayedReaction = reactions[i] as DelayedReaction;
 
+			Debug.Log ("Index : " + i);
+			Debug.Log (reactions [i].GetType ().Name);
+
             if (delayedReaction)
             {
                 if (reactions[i].GetType().Name == "TextReaction")

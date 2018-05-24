@@ -28,6 +28,7 @@ public class DynamicUI : MonoBehaviour {
 	}
 
 	public void OnDestroy(){
+		Debug.Log ("***");
 		FSLocator.uiContainer.DeleteObservation (gameObject);
 	}
 }
