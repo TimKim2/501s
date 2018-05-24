@@ -548,9 +548,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 01_npc_policeclick_1
+  description: 01_NPC_Police_SecondClick
   satisfied: 1
-  hash: -2136182933
+  hash: 588001995
 --- !u!1 &87159734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,6 +1368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 285164096}
   - component: {fileID: 285164097}
+  - component: {fileID: 285164098}
   m_Layer: 0
   m_Name: NPC_Interaction
   m_TagString: Untagged
@@ -1402,7 +1403,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list:
   - {fileID: 114735542983852754, guid: 95d7ee70593714da7b9b42511e2d3397, type: 2}
-  interactable: {fileID: 0}
+  interactable: {fileID: 1064865944}
+--- !u!61 &285164098
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 285164095}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &286042372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1441,6 +1467,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
+--- !u!1 &313518819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 313518820}
+  - component: {fileID: 313518821}
+  m_Layer: 0
+  m_Name: 04_AfterClick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &313518820
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 313518819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1064865943}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &313518821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 313518819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc7ecfe98531f2429694b8c81a6748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reactions: []
+  delaytime: 0
 --- !u!1 &358810971
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,6 +2209,37 @@ MonoBehaviour:
   dialogue: "\uB3D9\uC0DD\uC774 \uC120\uBB3C\uC744 \uB0A8\uACBC\uB2E4."
   characterName: ???
   characterImage: {fileID: 21300000, guid: 35c163259b6724b6bbba9b278151f787, type: 3}
+--- !u!114 &568477009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213b5dfc34e5f4f4bb0ae7121cbd41be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  dialogue: "\uC544\uC774\uAC00 \uC5C6\uC5B4\uC84C\uB2E4\uACE0 \uD569\uB2C8\uB2E4."
+  characterName: "\uACBD\uCC30"
+  characterImage: {fileID: 0}
+--- !u!114 &576440297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19650206dfebc44b3b7034f9130b1fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  shakePosition: 1
+  shakeRotation: 0
+  shakeIntensity: 100
+  shakeDecay: 3
 --- !u!114 &577088109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2169,8 +2268,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 578921788}
+  - component: {fileID: 578921789}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: 03_ThirdRection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2189,6 +2289,19 @@ Transform:
   m_Father: {fileID: 1064865943}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &578921789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 578921787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc7ecfe98531f2429694b8c81a6748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reactions: []
+  delaytime: 0
 --- !u!114 &601648175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2232,6 +2345,18 @@ MonoBehaviour:
     \uC544\uB2C8\uC5C8\uC796\uC544!"
   characterName: ???
   characterImage: {fileID: 21300000, guid: 35c163259b6724b6bbba9b278151f787, type: 3}
+--- !u!114 &628272199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e2567fcfd0a48aa9416890ede590dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
 --- !u!1001 &637007419
 Prefab:
   m_ObjectHideFlags: 0
@@ -3102,7 +3227,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fc7ecfe98531f2429694b8c81a6748a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactions: []
+  reactions:
+  - {fileID: 1588997592}
+  - {fileID: 1710935945}
+  - {fileID: 904130959}
+  - {fileID: 1381921489}
+  - {fileID: 1518084471}
+  - {fileID: 1137781388}
+  - {fileID: 1762077131}
   delaytime: 0
 --- !u!114 &903032221
 MonoBehaviour:
@@ -3116,6 +3248,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
+--- !u!114 &904130959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213b5dfc34e5f4f4bb0ae7121cbd41be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  dialogue: "\uD1B5\uC81C\uAC00 \uC2EC\uD55C\uB370?"
+  characterName: "\uC8FC\uB155"
+  characterImage: {fileID: 0}
 --- !u!114 &905176769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3443,11 +3590,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba8441b9c2c3d249ac22f527ffdeae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: New condition collection
+  description: ThirdReaction
   requiredConditions:
   - {fileID: 80435584}
-  - {fileID: 2144111311}
-  reactionCollection: {fileID: 0}
+  reactionCollection: {fileID: 578921789}
 --- !u!1 &1048715670 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1032013834615692, guid: 6a2508dea36824287aa7b6f5cf4ad7c4,
@@ -3719,6 +3865,7 @@ Transform:
   - {fileID: 897513138}
   - {fileID: 1269614440}
   - {fileID: 578921788}
+  - {fileID: 313518820}
   m_Father: {fileID: 285164096}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3737,7 +3884,8 @@ MonoBehaviour:
   conditionCollections:
   - {fileID: 1859067292}
   - {fileID: 1036331192}
-  defaultReactionCollection: {fileID: 0}
+  - {fileID: 2145326117}
+  defaultReactionCollection: {fileID: 897513139}
   isSkip: 0
 --- !u!114 &1086024081
 MonoBehaviour:
@@ -3828,6 +3976,20 @@ MonoBehaviour:
   reactions:
   - {fileID: 903032221}
   delaytime: 0
+--- !u!114 &1137781388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bfcd6253f76946df8027da020f510d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  condition: {fileID: 114596464125840714, guid: 8679bc7b1198b41268ca94121e6a7b5a,
+    type: 2}
 --- !u!114 &1147186771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4145,6 +4307,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1269614440}
+  - component: {fileID: 1269614441}
   m_Layer: 0
   m_Name: 02_SecondReaction
   m_TagString: Untagged
@@ -4165,6 +4328,28 @@ Transform:
   m_Father: {fileID: 1064865943}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1269614441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1269614439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc7ecfe98531f2429694b8c81a6748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reactions:
+  - {fileID: 1690329926}
+  - {fileID: 1568324107}
+  - {fileID: 568477009}
+  - {fileID: 2146321561}
+  - {fileID: 1338952115}
+  - {fileID: 576440297}
+  - {fileID: 1920308457}
+  - {fileID: 628272199}
+  - {fileID: 1449371820}
+  delaytime: 0
 --- !u!1 &1270878661
 GameObject:
   m_ObjectHideFlags: 0
@@ -4368,6 +4553,22 @@ MonoBehaviour:
   dialogue: "\uC544, \uC124\uB9C8?"
   characterName: "\uC8FC\uB155"
   characterImage: {fileID: 21300000, guid: 35c163259b6724b6bbba9b278151f787, type: 3}
+--- !u!114 &1338952115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213b5dfc34e5f4f4bb0ae7121cbd41be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  dialogue: "\uBCF4\uC548\uAD00\uB9CC \uCD9C\uC785\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.
+    \uBE44\uCF1C\uC8FC\uC138\uC694!"
+  characterName: "\uACBD\uCC30"
+  characterImage: {fileID: 0}
 --- !u!114 &1341862730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4426,6 +4627,22 @@ MonoBehaviour:
   dialogue: "\uC774\uAC74\u2026."
   characterName: "\uC8FC\uB155"
   characterImage: {fileID: 21300000, guid: 35c163259b6724b6bbba9b278151f787, type: 3}
+--- !u!114 &1381921489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213b5dfc34e5f4f4bb0ae7121cbd41be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  dialogue: "\uC544\uB2C8 \uC774 \uB9C8\uC744 \uBCF4\uC548\uAD00\uC740 \uC5B8\uC81C
+    \uC624\uB294 \uAC70\uC57C?"
+  characterName: "\uD615\uC0AC"
+  characterImage: {fileID: 0}
 --- !u!114 &1426597507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4488,6 +4705,20 @@ MonoBehaviour:
   - {fileID: 142626209}
   - {fileID: 1606642401}
   delaytime: 0
+--- !u!114 &1436216792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 01_NPC_Police_FirstClick
+  satisfied: 1
+  hash: 920761823
 --- !u!114 &1447494540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4503,6 +4734,20 @@ MonoBehaviour:
   dialogue: "\u2026\uC0AC\uB77C\uC84C\uC5B4, \uAF2C\uB9F9\uC774\uB3C4..."
   characterName: "\uC8FC\uB155"
   characterImage: {fileID: 21300000, guid: 35c163259b6724b6bbba9b278151f787, type: 3}
+--- !u!114 &1449371820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bfcd6253f76946df8027da020f510d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  condition: {fileID: 114377837576495626, guid: 8679bc7b1198b41268ca94121e6a7b5a,
+    type: 2}
 --- !u!1 &1456486528
 GameObject:
   m_ObjectHideFlags: 0
@@ -4750,6 +4995,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
+--- !u!114 &1518084471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213b5dfc34e5f4f4bb0ae7121cbd41be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  dialogue: "\uBCF4\uC548\uAD00?"
+  characterName: "\uC8FC\uB155"
+  characterImage: {fileID: 0}
 --- !u!1 &1532456426
 GameObject:
   m_ObjectHideFlags: 0
@@ -4780,6 +5040,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1568324107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213b5dfc34e5f4f4bb0ae7121cbd41be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  dialogue: "\uC800\uAE30, \uC5EC\uAE30 \uBB34\uC2A8 \uC77C\uC774 \uC77C\uC5B4\uB09C
+    \uAC70\uC8E0?"
+  characterName: "\uC8FC\uB155"
+  characterImage: {fileID: 0}
 --- !u!1001 &1580110254
 Prefab:
   m_ObjectHideFlags: 0
@@ -4904,6 +5180,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f879855c7b3bb4f809f5f70f5cf0882f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1588997592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094c2ac2eb0ad48739ed45a8bd9abf24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
 --- !u!114 &1591336588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5062,9 +5350,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 01_npc_policeclick_1
+  description: 01_NPC_Police_ThirdClick
   satisfied: 1
-  hash: -2136182933
+  hash: -2035166181
 --- !u!114 &1635174099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5165,6 +5453,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0
   delayTime: 2
+--- !u!114 &1690329926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094c2ac2eb0ad48739ed45a8bd9abf24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
 --- !u!1 &1690612164
 GameObject:
   m_ObjectHideFlags: 0
@@ -5293,6 +5593,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
+--- !u!114 &1710935945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213b5dfc34e5f4f4bb0ae7121cbd41be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  dialogue: "\uC544, \uBB3C\uB7EC\uC11C \uC8FC\uC2ED\uC2DC\uC624."
+  characterName: "\uACBD\uCE60"
+  characterImage: {fileID: 0}
 --- !u!114 &1739259997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5321,6 +5636,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0
   delayTime: 2.5
+--- !u!114 &1762077131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e2567fcfd0a48aa9416890ede590dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
 --- !u!114 &1778311968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5523,11 +5850,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba8441b9c2c3d249ac22f527ffdeae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: New condition collection
+  description: AfterAllReaction
   requiredConditions:
   - {fileID: 1633292147}
-  - {fileID: 2061203477}
-  reactionCollection: {fileID: 0}
+  reactionCollection: {fileID: 313518821}
 --- !u!1 &1868254106
 GameObject:
   m_ObjectHideFlags: 0
@@ -5823,6 +6149,21 @@ MonoBehaviour:
   volume: 1
   maxVolume: 1
   fadeTime: 0
+--- !u!114 &1920308457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b5f7ce97bd464977be5c0801d6797c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  pushNpcTransform: {fileID: 878305835}
+  speed: 5
+  distance: 5
 --- !u!114 &1923795939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6125,20 +6466,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
---- !u!114 &2061203477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: 01_npc_ploiceclick_2
-  satisfied: 1
-  hash: -136738272
 --- !u!1 &2074714502
 GameObject:
   m_ObjectHideFlags: 0
@@ -6315,7 +6642,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224363697755976256, guid: f879855c7b3bb4f809f5f70f5cf0882f,
     type: 2}
   m_PrefabInternal: {fileID: 1580110254}
---- !u!114 &2144111311
+--- !u!114 &2145326117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -6323,9 +6650,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Script: {fileID: 11500000, guid: eba8441b9c2c3d249ac22f527ffdeae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 01_npc_ploiceclick_2
-  satisfied: 0
-  hash: -136738272
+  description: SecondReaction
+  requiredConditions:
+  - {fileID: 1436216792}
+  reactionCollection: {fileID: 1269614441}
+--- !u!114 &2146321561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213b5dfc34e5f4f4bb0ae7121cbd41be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  dialogue: "\uC544, \uC0AC\uC2E4 \uC81C\uAC00\u2026"
+  characterName: "\uC8FC\uB155"
+  characterImage: {fileID: 0}

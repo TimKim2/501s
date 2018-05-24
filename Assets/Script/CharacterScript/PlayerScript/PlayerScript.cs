@@ -18,7 +18,6 @@ public class PlayerScript : CharacterScript {
     // 유저가 클릭한 좌표를 플레이어 스크립트에 전달합니다.
     public override void Move(Vector2 touchPoint, float speed)
     {
-		Debug.Log("PlayerMove");
         // 이동 목표 좌표를 터치 좌표로 지정
         movePoint = touchPoint;
         // 이동 목표 좌표까지 이동할 속도 지정

@@ -52,7 +52,7 @@ public class CameraShaking : MonoBehaviour
 			Debug.Log ("Is Shaking?");
 			isShakeRunning = true;
 			float currentShakeIntensity = shakeIntensity;
-			//Debug.Log (currentShakeIntensity);
+
 
 			while (currentShakeIntensity > 0)
 			{
@@ -60,8 +60,7 @@ public class CameraShaking : MonoBehaviour
 				if (shakePosition)
 				{
 					transform.position = OriginalPos + Random.insideUnitSphere * currentShakeIntensity *.02f;
-					Debug.Log (transform.position);
-					//Debug.Log (Random.insideUnitSphere);
+
 				}
 				if (shakeRotation)
 				{

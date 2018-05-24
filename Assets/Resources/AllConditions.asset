@@ -13,6 +13,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditions:
   - {fileID: 114691834020707824}
+  - {fileID: 114596464125840714}
+  - {fileID: 114377837576495626}
+  - {fileID: 114505225823698490}
+--- !u!114 &114377837576495626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Name: 01_NPC_Police_SecondClick
+  m_EditorClassIdentifier: 
+  description: 01_NPC_Police_SecondClick
+  satisfied: 1
+  hash: 588001995
+--- !u!114 &114505225823698490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Name: 01_NPC_Police_ThirdClick
+  m_EditorClassIdentifier: 
+  description: 01_NPC_Police_ThirdClick
+  satisfied: 0
+  hash: -2035166181
+--- !u!114 &114596464125840714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Name: 01_NPC_Police_FirstClick
+  m_EditorClassIdentifier: 
+  description: 01_NPC_Police_FirstClick
+  satisfied: 1
+  hash: 920761823
 --- !u!114 &114629100282694746
 MonoBehaviour:
   m_ObjectHideFlags: 0
