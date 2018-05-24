@@ -45,7 +45,10 @@ public class ReactionCollection : MonoBehaviour
 
     public void React()
     {
-        if (FSLocator.textDisplayer.isTyping)
+		if (startIndex == 0) {
+			FSLocator.textDisplayer.StopAllCoroutines ();
+		}
+        else if (FSLocator.textDisplayer.isTyping)
         {
             FSLocator.textDisplayer.SkipTypingLetter();
 			FSLocator.textDisplayer.reactionButton.onClick.RemoveAllListeners();

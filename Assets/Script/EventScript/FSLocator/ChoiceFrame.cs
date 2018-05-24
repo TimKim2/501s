@@ -35,6 +35,7 @@ public class ChoiceFrame : MonoBehaviour {
 		firstButton.onClick.RemoveAllListeners ();
 		secondButton.onClick.RemoveAllListeners ();
 
+
 		gameObject.SetActive (false);
 	}
 }
