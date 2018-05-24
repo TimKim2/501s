@@ -80,6 +80,17 @@ public class FSLocator
         }
     }
 
+	private static UIContainer m_uiContainer;
+	public static UIContainer uiContainer
+	{
+		get {
+			if (!m_uiContainer) {
+				m_uiContainer = GameObject.FindObjectOfType<UIContainer> ();
+			}
+			return m_uiContainer;
+		}
+	}
+
 
 
     private static Timer m_timer;

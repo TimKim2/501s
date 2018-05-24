@@ -30,6 +30,20 @@ public class PlayerScript : CharacterScript {
         ChangeAnimation();
     }
 
+	public void MoveReverse(Vector2 touchPoint, float speed)
+	{
+		// 이동 목표 좌표를 터치 좌표로 지정
+		movePoint = touchPoint;
+		// 이동 목표 좌표까지 이동할 속도 지정
+		this.speed = speed;
+
+		// 이동 시작
+		isMoving = true;
+
+		// 이동 애니메이션 수행
+		ReverseChangeAnimation();
+	}
+
 
     // UI 클릭 등에 의한 정지
     public void Stop()
@@ -146,4 +160,69 @@ public class PlayerScript : CharacterScript {
             mode = BEHAVIOR_MODE.IDLE;
         }
     }
+
+	private void ReverseChangeAnimation()
+	{
+		// 터치 후 이동중이라면..
+		if (isMoving)
+		{
+			// 클릭 좌표가 플레이어보다 왼쪽에 있다.
+			if(trans.position.x > movePoint.x)
+			{
+				// 클릭 좌표가 플레이어보다 아래에 있다.
+				if (trans.position.y > movePoint.y && !(mode == BEHAVIOR_MODE.MOVE_BOTLEFT))
+				{
+					anim.SetTrigger("TopRight");
+
+					mode = BEHAVIOR_MODE.MOVE_TOPRIGHT;
+				}
+				// 클릭 좌표가 플레이어보다 위에 있다.
+				else if(trans.position.y <= movePoint.y && !(mode == BEHAVIOR_MODE.MOVE_TOPLEFT))
+				{
+					anim.SetTrigger("BotRight");
+
+					mode = BEHAVIOR_MODE.MOVE_BOTRIGHT;
+				}
+			}
+			// 클릭 좌표가 플레이어보다 오른쪽에 있다.
+			else
+			{
+				// 클릭 좌표가 플레이어보다 아래에 있다.
+				if (trans.position.y > movePoint.y && !(mode == BEHAVIOR_MODE.MOVE_BOTRIGHT))
+				{
+					anim.SetTrigger("TopLeft");
+
+					mode = BEHAVIOR_MODE.MOVE_TOPLEFT;
+				}
+				// 클릭 좌표가 플레이어보다 위에 있다.
+				else if(trans.position.y <= movePoint.y && !(mode == BEHAVIOR_MODE.MOVE_TOPRIGHT))
+				{
+					anim.SetTrigger("BotLeft");
+
+					mode = BEHAVIOR_MODE.MOVE_BOTLEFT;
+				}
+			}
+		}
+		// 정지한 상태이면..
+		else
+		{
+			// 이동하던 방향에 따라 캐릭터기 Idle 하며 바라보는 애니메이션 지정
+			switch(mode)
+			{
+			case BEHAVIOR_MODE.MOVE_BOTLEFT:
+				anim.SetTrigger("Idle_BotLeft");
+				break;
+			case BEHAVIOR_MODE.MOVE_BOTRIGHT:
+				anim.SetTrigger("Idle_BotRight");
+				break;
+			case BEHAVIOR_MODE.MOVE_TOPLEFT:
+				anim.SetTrigger("Idle_TopLeft");
+				break;
+			case BEHAVIOR_MODE.MOVE_TOPRIGHT:
+				anim.SetTrigger("Idle_TopRight");
+				break;
+			}
+			mode = BEHAVIOR_MODE.IDLE;
+		}
+	}
 }

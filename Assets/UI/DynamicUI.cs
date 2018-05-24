@@ -15,6 +15,7 @@ public class DynamicUI : MonoBehaviour {
 	}
 
 	public void OnEnable(){
+		FSLocator.uiContainer.InsertObservation (gameObject);
 		myCamera = FindObjectOfType<Camera> ();
 
 	
@@ -25,5 +26,9 @@ public class DynamicUI : MonoBehaviour {
 	public void SetVector(Vector3 vector){
 		parentVector = vector;
 		myVector = new Vector3 (parentVector.x, parentVector.y + 2.0f, parentVector.z);
+	}
+
+	public void OnDestroy(){
+		FSLocator.uiContainer.DeleteObservation (gameObject);
 	}
 }

@@ -18,12 +18,12 @@ public class PushBackReaction : DelayedReaction
 	{
 		FSLocator.textDisplayer.reactionButton.enabled = false;
 
-		Vector3 pushedVector = pushNpcTransform.position - player.transform.position;
+		Vector3 pushedVector = player.transform.position - pushNpcTransform.position;
 		pushedVector.z = 0;
 		Debug.Log ("Push ! : " + pushedVector.normalized);
 		Vector3 destination = player.transform.position + pushedVector.normalized * distance;
 
-		player.Move (destination, speed);
+		player.MoveReverse (destination, speed);
 
 		myCorotine = CoroutineHandler.Start_Coroutine (CheckMoving()).gameObject;
 	}

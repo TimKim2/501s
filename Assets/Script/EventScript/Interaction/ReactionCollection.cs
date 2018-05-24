@@ -116,7 +116,6 @@ public class ReactionCollection : MonoBehaviour
                         return;
                     }
                 }
-
 				else if (reactions[i].GetType().Name == "CharacterMoveReaction")
                 {
                     if (startIndex == reactions.Length - 1)
@@ -130,6 +129,19 @@ public class ReactionCollection : MonoBehaviour
                         return;
                     }
                 }
+				else if (reactions[i].GetType().Name == "PushBackReaction")
+				{
+					if (startIndex == reactions.Length - 1)
+						break;
+					else
+					{
+						startIndex = i + 1;
+						FSLocator.textDisplayer.reactionButton.onClick.RemoveAllListeners();
+						FSLocator.textDisplayer.reactionButton.onClick.AddListener(delegate { this.React(); });
+						delayedReaction.React(this);
+						return;
+					}
+				}
                 else if (reactions[i].GetType().Name == "EventCallbackReaction" || reactions[i].GetType().Name == "EventCallbackConditionReaction")
                 {
                     startIndex = 0;

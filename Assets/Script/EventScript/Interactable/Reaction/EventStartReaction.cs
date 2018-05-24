@@ -18,6 +18,7 @@ public class EventStartReaction : DelayedReaction
 		FSLocator.textDisplayer.reactionButton.gameObject.SetActive (true);
 
 		FSLocator.textDisplayer.ShowDialogueHolder ();
+		FSLocator.uiContainer.HideObservationList ();
 
 		m_raycast.enabled = false;
 

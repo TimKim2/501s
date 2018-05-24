@@ -4,10 +4,12 @@ using System.Collections;
 public class EventEndReaction : DelayedReaction
 {
 	raycast m_raycast;
+	GameObject player;
 
 	protected override void SpecificInit()
 	{
 		m_raycast = FindObjectOfType<raycast>();
+		player = FindObjectOfType<PlayerScript> ().gameObject;
 	}
 
     protected override void ImmediateReaction()
@@ -18,6 +20,8 @@ public class EventEndReaction : DelayedReaction
 		FSLocator.textDisplayer.reactionButton.gameObject.SetActive (false);
         FSLocator.textDisplayer.HideDialogueHolder();
         FSLocator.characterDisplayer.HideImage();
+
+		FSLocator.uiContainer.ShowObservationList ();
   
 		m_raycast.enabled = true;
     }

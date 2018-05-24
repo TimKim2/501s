@@ -51,7 +51,6 @@ public class ConditionObjectInteraction : MonoBehaviour {
 				button.onClick.RemoveAllListeners ();
 				button.onClick.AddListener(delegate {
 					interactable.Interact();
-					Destroy(button.gameObject);
 				});
 
 			}
@@ -66,8 +65,9 @@ public class ConditionObjectInteraction : MonoBehaviour {
 			// 현재 표시된 UI들을 제거
 			foreach (var ui in conShowedUI)
 			{
-				if(ui != null)
-					Destroy(ui.gameObject);
+				if (ui != null) {
+					Destroy (ui.gameObject);
+				}
 			}
 			// 현재 표시된 UI가 없으므로 할당했던 리스트를 초기화한다.
 			conShowedUI.Clear();

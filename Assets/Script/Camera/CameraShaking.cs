@@ -49,14 +49,12 @@ public class CameraShaking : MonoBehaviour
 	{
 		if (!isShakeRunning)
 		{
-			Debug.Log ("Is Shaking?");
 			isShakeRunning = true;
 			float currentShakeIntensity = shakeIntensity;
 
 
 			while (currentShakeIntensity > 0)
 			{
-				Debug.Log ("Shaking");
 				if (shakePosition)
 				{
 					transform.position = OriginalPos + Random.insideUnitSphere * currentShakeIntensity *.02f;
