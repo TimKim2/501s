@@ -21,6 +21,7 @@ public class TextDisplayer : MonoBehaviour {
 
 	public Button reactionButton;
 	public ChoiceFrame choiceFrame;
+	public TripleChoiceFrame tripleChoiceFrame;
 
 	public CanvasGroup mapPannel;
 	public Text mapText;

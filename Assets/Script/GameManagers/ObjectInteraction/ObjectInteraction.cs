@@ -46,6 +46,8 @@ public class ObjectInteraction : MonoBehaviour {
 				// 생성한 UI를 Canvas 하위로 이동
 				button.transform.SetParent(canvas);
 
+				FSLocator.uiContainer.InsertObservation (gameObject);
+
 				// 생성한 UI 위치를 부모 객체 위로 이동
 				Vector3 myVector = transform.parent.position;
 				button.GetComponent<DynamicUI> ().SetVector (myVector);

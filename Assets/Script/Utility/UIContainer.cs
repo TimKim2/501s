@@ -22,6 +22,7 @@ public class UIContainer : MonoBehaviour {
 	}
 
 	public void HideObservationList(){
+		Debug.Log ("Hide Count : " + observationList.Count);
 		for (int i = 0; i < observationList.Count; i++) {
 			if (observationList [i] == null) {
 				observationList.RemoveAt (i);

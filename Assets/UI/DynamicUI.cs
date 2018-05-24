@@ -15,7 +15,6 @@ public class DynamicUI : MonoBehaviour {
 	}
 
 	public void OnEnable(){
-		FSLocator.uiContainer.InsertObservation (gameObject);
 		myCamera = FindObjectOfType<Camera> ();
 
 	

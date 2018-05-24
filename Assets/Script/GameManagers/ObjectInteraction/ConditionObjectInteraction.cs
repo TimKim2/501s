@@ -41,11 +41,15 @@ public class ConditionObjectInteraction : MonoBehaviour {
 
 				// 현재 생성된 UI를 목록에 저장
 				conShowedUI.Add(button);
+				
 
 				// 생성한 UI를 Canvas 하위로 이동
 				button.transform.SetParent(canvas);
 
 				// 생성한 UI 위치를 부모 객체 위로 이동
+
+				FSLocator.uiContainer.InsertObservation (button.gameObject);
+
 				Vector3 myVector = transform.parent.position;
 				button.GetComponent<DynamicUI> ().SetVector (myVector);
 				button.onClick.RemoveAllListeners ();
