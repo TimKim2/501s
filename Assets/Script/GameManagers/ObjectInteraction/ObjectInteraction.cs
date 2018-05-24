@@ -53,6 +53,7 @@ public class ObjectInteraction : MonoBehaviour {
 				button.onClick.AddListener(delegate {
 					reaction.InitIndex();
 					reaction.React();
+					Destroy(button.gameObject);
 				});
 
 			}

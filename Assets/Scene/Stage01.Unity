@@ -1115,6 +1115,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
+--- !u!114 &243418656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bfcd6253f76946df8027da020f510d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+  condition: {fileID: 114377837576495626, guid: 8679bc7b1198b41268ca94121e6a7b5a,
+    type: 2}
 --- !u!1 &243851342
 GameObject:
   m_ObjectHideFlags: 0
@@ -4347,8 +4361,8 @@ MonoBehaviour:
   - {fileID: 1338952115}
   - {fileID: 576440297}
   - {fileID: 1920308457}
+  - {fileID: 243418656}
   - {fileID: 628272199}
-  - {fileID: 1449371820}
   delaytime: 0
 --- !u!1 &1270878661
 GameObject:
@@ -4734,20 +4748,6 @@ MonoBehaviour:
   dialogue: "\u2026\uC0AC\uB77C\uC84C\uC5B4, \uAF2C\uB9F9\uC774\uB3C4..."
   characterName: "\uC8FC\uB155"
   characterImage: {fileID: 21300000, guid: 35c163259b6724b6bbba9b278151f787, type: 3}
---- !u!114 &1449371820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bfcd6253f76946df8027da020f510d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
-  condition: {fileID: 114377837576495626, guid: 8679bc7b1198b41268ca94121e6a7b5a,
-    type: 2}
 --- !u!1 &1456486528
 GameObject:
   m_ObjectHideFlags: 0
@@ -6163,7 +6163,7 @@ MonoBehaviour:
   delay: 0
   pushNpcTransform: {fileID: 878305835}
   speed: 5
-  distance: 5
+  distance: 20
 --- !u!114 &1923795939
 MonoBehaviour:
   m_ObjectHideFlags: 0

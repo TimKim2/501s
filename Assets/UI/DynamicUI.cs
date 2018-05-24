@@ -24,6 +24,6 @@ public class DynamicUI : MonoBehaviour {
 
 	public void SetVector(Vector3 vector){
 		parentVector = vector;
-		myVector = new Vector3 (parentVector.x, parentVector.y + 1.0f, parentVector.z);
+		myVector = new Vector3 (parentVector.x, parentVector.y + 2.0f, parentVector.z);
 	}
 }

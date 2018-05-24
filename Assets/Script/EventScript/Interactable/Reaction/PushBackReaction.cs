@@ -19,6 +19,8 @@ public class PushBackReaction : DelayedReaction
 		FSLocator.textDisplayer.reactionButton.enabled = false;
 
 		Vector3 pushedVector = pushNpcTransform.position - player.transform.position;
+		pushedVector.z = 0;
+		Debug.Log ("Push ! : " + pushedVector.normalized);
 		Vector3 destination = player.transform.position + pushedVector.normalized * distance;
 
 		player.Move (destination, speed);
