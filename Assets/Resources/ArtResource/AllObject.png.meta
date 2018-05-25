@@ -7,6 +7,7 @@ TextureImporter:
     21300000: AllObject_0
     21300002: AllObject_1
     21300004: AllObject_2
+    21300006: AllObject_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -148,6 +149,20 @@ TextureImporter:
         y: 26
         width: 258
         height: 185
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AllObject_3
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 490
+        width: 279
+        height: 235
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
