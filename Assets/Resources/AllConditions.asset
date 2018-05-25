@@ -18,6 +18,22 @@ MonoBehaviour:
   - {fileID: 114596464125840714}
   - {fileID: 114377837576495626}
   - {fileID: 114505225823698490}
+  - {fileID: 114773716200985198}
+  - {fileID: 114010609961354410}
+--- !u!114 &114010609961354410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Name: 01_Choice_TellLie
+  m_EditorClassIdentifier: 
+  description: 01_Choice_TellLie
+  satisfied: 0
+  hash: -1612774417
 --- !u!114 &114377837576495626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,3 +132,17 @@ MonoBehaviour:
   description: 01.5_Clue_FindWatch
   satisfied: 0
   hash: 1281501836
+--- !u!114 &114773716200985198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Name: 01_Choice_TellTruth
+  m_EditorClassIdentifier: 
+  description: 01_Choice_TellTruth
+  satisfied: 0
+  hash: -1029518964
