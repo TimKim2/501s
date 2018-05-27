@@ -564,9 +564,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 02_Clue_FIndIdCard
+  description: 01_Choice_TellLie
   satisfied: 1
-  hash: -1228196086
+  hash: -1612774417
 --- !u!114 &82926361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1470,6 +1470,21 @@ MonoBehaviour:
   dialogue: "\uC800\uB7F0, \uD138 \uAD00\uB9AC\uB97C \uC798 \uD574\uC8FC\uC168\uC5B4\uC57C\uC9C0\uC694."
   characterName: "\uD615\uC0AC"
   characterImage: {fileID: 0}
+--- !u!114 &197939242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba8441b9c2c3d249ac22f527ffdeae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: New condition collection
+  requiredConditions:
+  - {fileID: 1112245858}
+  reactionCollection: {fileID: 578921789}
 --- !u!114 &200978871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3485,6 +3500,7 @@ MonoBehaviour:
   - {fileID: 1319161126}
   - {fileID: 659235108}
   - {fileID: 1308406670}
+  - {fileID: 1468258728}
   delaytime: 0
 --- !u!114 &621457020
 MonoBehaviour:
@@ -6194,6 +6210,8 @@ MonoBehaviour:
   - {fileID: 1036331192}
   - {fileID: 2145326117}
   - {fileID: 1595821986}
+  - {fileID: 197939242}
+  - {fileID: 1222981830}
   defaultReactionCollection: {fileID: 897513139}
   isSkip: 0
 --- !u!114 &1066611231
@@ -6419,6 +6437,20 @@ MonoBehaviour:
     \uC6B8\uACE0 \uC788\uC5B4."
   characterName: "\uC8FC\uB155"
   characterImage: {fileID: 0}
+--- !u!114 &1112245858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 01_NPC_Police_SecondClick
+  satisfied: 0
+  hash: 588001995
 --- !u!114 &1114610665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7205,6 +7237,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.8728237}
   m_EdgeRadius: 0
+--- !u!114 &1222981830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba8441b9c2c3d249ac22f527ffdeae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: New condition collection
+  requiredConditions:
+  - {fileID: 1535929164}
+  reactionCollection: {fileID: 1269614441}
 --- !u!114 &1224181119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7897,9 +7944,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 01_NPC_Police_SecondClick
+  description: 01_Choice_TellTruth
   satisfied: 1
-  hash: 588001995
+  hash: -1029518964
 --- !u!114 &1445455519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8053,6 +8100,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 094c2ac2eb0ad48739ed45a8bd9abf24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
+--- !u!114 &1468258728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e2567fcfd0a48aa9416890ede590dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
@@ -8424,6 +8483,20 @@ MonoBehaviour:
   description: 01.5_Clue_FindWatch
   satisfied: 1
   hash: 1281501836
+--- !u!114 &1535929164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 01_NPC_Police_FirstClick
+  satisfied: 0
+  hash: 920761823
 --- !u!114 &1536945735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8694,7 +8767,7 @@ MonoBehaviour:
   description: New condition collection
   requiredConditions:
   - {fileID: 1789750330}
-  reactionCollection: {fileID: 1269614441}
+  reactionCollection: {fileID: 1769360221}
 --- !u!1001 &1601333269
 Prefab:
   m_ObjectHideFlags: 0
@@ -9885,9 +9958,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4c454cc4c7c044689bf7d8ce6b01cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 01_NPC_Police_FirstClick
+  description: 01_NPC_Police_ThirdClick
   satisfied: 1
-  hash: 920761823
+  hash: -2035166181
 --- !u!114 &1793481824
 MonoBehaviour:
   m_ObjectHideFlags: 0
