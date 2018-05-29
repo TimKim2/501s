@@ -27,6 +27,8 @@ public class ItemScript : UIScript {
     public Image itemImage;
 
 
+    // Drag Item Image RectTransform 콤포넌트 캐싱
+    public RectTransform dragImage;
 
 
     // 메인화면 상단 UI의 Icon 클릭으로 인벤토리 캔버스 표시
@@ -40,6 +42,9 @@ public class ItemScript : UIScript {
         giveBg.SetActive(false);
 
         bgState = BGSTATE.MIX1;
+
+        // 조합 불가능한 아이템을 표시하고 있다면, 이 표시를 제거
+        GetComponent<ContentScript>().IsMixOKReverse();
 
         InitUI();
     }
@@ -61,6 +66,12 @@ public class ItemScript : UIScript {
 
     }
 
+    // drag 하여 모인 아이템들을 조합
+    public void OnClickMix2()
+    {
+
+    }
+
     // NPC 대화 상 '주다' 버튼으로 인벤토리 캔버스 표시
     public void OnClickGive()
     {
@@ -74,19 +85,6 @@ public class ItemScript : UIScript {
         bgState = BGSTATE.GIVE;
         
         InitUI();
-    }
-    
-    // Drag 시작
-    public void DragItemOn()
-    {
-        // 
-
-    }
-
-    // Drag 끝
-    public void DragItemOff()
-    {
-
     }
 
     // 인벤토리 캔버스 종료

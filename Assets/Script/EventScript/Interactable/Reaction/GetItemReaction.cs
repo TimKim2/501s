@@ -13,7 +13,7 @@ public class GetItemReaction : DelayedReaction
     {
         playerInventory = GameObject.Find("ItemDisplayer").GetComponent<ContentScript>();
 		//During Set Item Number
-        //playerInventory.GetItem(itemID);
+        playerInventory.GetItem(itemID);
 
 		if (itemObject != null)
 			Destroy (itemObject);

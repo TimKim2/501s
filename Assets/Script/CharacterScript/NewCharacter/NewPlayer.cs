@@ -41,6 +41,9 @@ public class NewPlayer : NewCharacter{
 
         // 이동 시작
         isMoving = true;
+
+        // 방향에 따른 애니메이션 변환
+        ChangeAnimation();
     }
 
     // 외부에서 (아마 대부분 조이스틱 스크립트) 플레이어로 전달하는 정지 정보에 대한 함수
@@ -88,9 +91,6 @@ public class NewPlayer : NewCharacter{
             // 만약 이동 중이면..
             if (isMoving)
             {
-                // 방향에 따른 애니메이션 변환
-                ChangeAnimation();
-
                 // 방향으로 이동
                 MoveToVector(moveVector);
             }
