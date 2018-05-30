@@ -5,6 +5,12 @@ licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: 1stage_home_object_0
+    21300002: 1stage_home_object_1
+    21300004: 1stage_home_object_2
+    21300006: 1stage_home_object_3
+    21300008: 1stage_home_object_4
+    21300010: 1stage_home_object_5
+    21300012: 1stage_home_object_6
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -118,6 +124,90 @@ TextureImporter:
         y: 1057
         width: 187
         height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1stage_home_object_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 293
+        width: 487
+        height: 672
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1stage_home_object_2
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 683
+        width: 452
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1stage_home_object_3
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1003
+        width: 194
+        height: 293
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1stage_home_object_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 996
+        width: 208
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1stage_home_object_5
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 327
+        width: 604
+        height: 351
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 1stage_home_object_6
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 1028
+        width: 218
+        height: 268
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
