@@ -92,7 +92,7 @@ public class SlotScript : MonoBehaviour {
     public void OnDrag(BaseEventData _Data)
     {
         // 클릭한 slot이 비어있으면 아무 작동도 하지 않음.
-        if (ID == "")
+        if (ID == "" || deActivatedImage.enabled == true)
         {
             return;
         }
@@ -147,7 +147,7 @@ public class SlotScript : MonoBehaviour {
             if (use == USE.ITEM)
             {
                 // 클릭한 slot의 정보를 재료 영역의 content 에 전달하여 표시
-                itemScript.gameObject.GetComponent<ContentScript>().RegistMaterial(ID, index);
+                itemScript.gameObject.GetComponent<ContentScript>().RegistMaterial(ID, index, itemImage.sprite);
             }
             // 클릭했던 slot이 속해있는 List가 재료 리스트이면..
             else
@@ -174,14 +174,14 @@ public class SlotScript : MonoBehaviour {
     }
     
     // Item 획득 시 호출(sprite는 item의 이미지)
-    public void GetItem( string tempID, string tempName, string tempExp)
+    public void GetItem( string tempID, string tempName, string tempExp, Sprite tempImage)
     {
         // 표시할 이미지 정보 저장
         ID = tempID;
         itemName = tempName;
         itemExp = tempExp;
         // 이미지는 임시로..
-        itemImage.sprite = Resources.Load<Sprite>("ArtResource/Paper");
+        itemImage.sprite = tempImage;
 
         // slot button target graphic을 변경(변경하지 않으면 click 시 색 변환이 안댐)
         GetComponent<Button>().targetGraphic = itemImage;
@@ -190,7 +190,7 @@ public class SlotScript : MonoBehaviour {
         itemImage.enabled = true;
     }
 
-    public void RegistMaterial(string tempID, int tempIndex)
+    public void RegistMaterial(string tempID, int tempIndex, Sprite tempImage)
     {
         // 등록한 material 정보 저장
         ID = tempID;
@@ -198,7 +198,7 @@ public class SlotScript : MonoBehaviour {
         itemExp = "";
         index = tempIndex;
         // 이미지는 임시로..
-        itemImage.sprite = Resources.Load<Sprite>("ArtResource/Paper");
+        itemImage.sprite = tempImage;
 
         // slot button target graphic을 변경(변경하지 않으면 click 시 색 변환이 안댐)
         GetComponent<Button>().targetGraphic = itemImage;
@@ -256,5 +256,10 @@ public class SlotScript : MonoBehaviour {
     public int GetIndex()
     {
         return index;
+    }
+
+    public Sprite GetImage()
+    {
+        return itemImage.sprite;
     }
 }

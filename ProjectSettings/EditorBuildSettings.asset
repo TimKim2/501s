@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scene/FirstCutScene.Unity
     guid: 3c3e64d97f50447668f4351cf396e682
   - enabled: 1
-    path: Assets/Scene/TestScene.Unity
+    path: Assets/Scene/TestScene.unity
     guid: 30ff7308e209d4db8bfb6d8c5043feeb
   - enabled: 1
     path: Assets/Scene/MinsooTestScene.unity

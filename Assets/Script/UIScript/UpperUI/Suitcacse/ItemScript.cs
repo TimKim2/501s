@@ -64,6 +64,9 @@ public class ItemScript : UIScript {
         // 자~ 가지고 있는 이이템 목록을 순회하며 조합 가능한 아이템만 표시
         GetComponent<ContentScript>().IsMixOK();
 
+        // 조합 목록에 이전에 사용한 재료가 있다면 삭제
+        GetComponent<ContentScript>().DeleteAllMaterial();
+
     }
 
     // drag 하여 모인 아이템들을 조합

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1b1319725960b4d38af2a2fbe12e2c23
+guid: 6f268cb4190af8f4aa591585d4f59434
 timeCreated: 1527181300
 licenseType: Free
 TextureImporter:
@@ -9,6 +9,8 @@ TextureImporter:
     21300004: AllObject_2
     21300006: AllObject_3
     21300008: AllObject_4
+    21300010: AllObject_5
+    21300012: AllObject_6
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -179,7 +181,21 @@ TextureImporter:
         width: 333
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AllObject_6
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 451
+        width: 330
+        height: 330
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

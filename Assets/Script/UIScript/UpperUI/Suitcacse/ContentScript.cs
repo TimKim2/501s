@@ -13,7 +13,7 @@ public class ContentScript : MonoBehaviour {
     // 아이템 리스트의 현재 채워져 있는 slot 갯수
     private int conSlot_item = 0;
 
-
+    
     // 재료 slot을 담고있는 content 객체
     public GameObject materialContent;
     // 재료 리스트의 전체 slot
@@ -33,7 +33,7 @@ public class ContentScript : MonoBehaviour {
     // ========================================================== 공개 메서드 정의 ====================================================
 
     // Item 획득 시 호출(ID는 item의 csv 파일 내 ID 값)
-    public void GetItem(string ID)
+    public void GetItem(string ID, Sprite tempImage)
     {
         // 비워져 있는 item 칸이 있는지 확인
         if (conSlot_item >= itemSlots.Length)
@@ -48,7 +48,7 @@ public class ContentScript : MonoBehaviour {
             string tempExp = GetExplanation(ID);
 
             // slot에 아이템 정보를 전송
-            itemSlots[conSlot_item].GetItem(ID, tempName, tempExp);
+            itemSlots[conSlot_item].GetItem(ID, tempName, tempExp, tempImage);
 
             // 현재 채워져 있는 slot 갯수 변경
             conSlot_item++;
@@ -56,13 +56,13 @@ public class ContentScript : MonoBehaviour {
     }
 
     // item slot의 아이템을 material slot으로 이동 시 호출
-    public void RegistMaterial(string ID, int index)
+    public void RegistMaterial(string ID, int index, Sprite tempImage)
     {
         // 비워져 있는 item 칸이 있는지 확인
         if (conSlot_material >= materialSlots.Length)
         {
             // 허용 가능한 재료 등록 갯수를 초과하였다,
-            Debug.Log(11);
+
             return;
         }
         else
@@ -75,10 +75,20 @@ public class ContentScript : MonoBehaviour {
             }
 
             // slot에 재료 정보를 전송
-            materialSlots[conSlot_material].RegistMaterial(ID, index);
+            materialSlots[conSlot_material].RegistMaterial(ID, index, tempImage);
 
             // 현재 채워져 있는 material 갯수 변경
             conSlot_material++;
+        }
+    }
+
+    // 모든 material slot을 비운다.
+    public void DeleteAllMaterial()
+    {
+        // 전체 material slot의 삭제는 뒤 쪽 slot부터 삭제를 해야 무의미한 sort 과정이 무시된다.
+        for(int i = conSlot_material - 1; i >= 0; i--)
+        {
+            DeleteMaterial(i);
         }
     }
 
@@ -125,7 +135,7 @@ public class ContentScript : MonoBehaviour {
                 else
                 {
                     // 마지막 전까지는 현재 노드에 다음 노드의 정보를 대입
-                    materialSlots[i].RegistMaterial(materialSlots[i + 1].GetID(), materialSlots[i + 1].GetIndex());
+                    materialSlots[i].RegistMaterial(materialSlots[i + 1].GetID(), materialSlots[i + 1].GetIndex(), materialSlots[i + 1].GetImage());
                 }
             }
         }
