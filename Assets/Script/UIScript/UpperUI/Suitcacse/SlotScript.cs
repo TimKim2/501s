@@ -117,10 +117,10 @@ public class SlotScript : MonoBehaviour {
         // 드래그한 위치 정보..
         PointerEventData Data = _Data as PointerEventData;
         // 를 Vector2로 변환
-        Vector2 conPos = Data.position;
+        Vector3 conPos = Data.position;
 
         // Drag할 Image 객체를 현재 클릭 좌표로 이동
-        itemScript.dragImage.localPosition = new Vector2(conPos.x - itemScript.transform.position.x, conPos.y - itemScript.transform.position.y);
+		itemScript.dragImage.position = conPos;
     }
 
     public void OnDragEnd(BaseEventData _Data)
