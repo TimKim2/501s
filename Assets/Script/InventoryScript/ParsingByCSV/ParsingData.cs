@@ -16,24 +16,12 @@ public class ParsingData : ScriptableObject {
     // csv로부터 파싱한 정보를 캐싱할 변수.
     public List<Dictionary<string, object>> list = new List<Dictionary<string, object>>();
 
-    // csv 파일이 어느 종류의 정보를 보관하는지 식별
-    // 각 종류마다 호출 가능한 함수가 다르므로, 불가능한 함수의 호출을 방지
-    public enum CSV_TYPE
-    {
-        Item_Info,
-        Mix_Info,
-    }
-    public CSV_TYPE type;
-
-
+	public void OnEnable(){
+		//SetFilePath(path);
+		Parsing ();
+	}
 
     //================================================= 공개 메서드 정의 =======================================================//
-
-    public void OnEnable()
-    {
-        //SetFilePath(path);
-        Parsing();
-    }
 
     // csv 파일 경로를 받아 파싱한다.
     public void CreateAssetInfo(string path)
@@ -44,106 +32,105 @@ public class ParsingData : ScriptableObject {
         Parsing();
     }
 
+    // 해당 ID, ItemName, ItemPlace에 맞는 Itme들만 가져온다.
+    public List<Dictionary<string, object>> GetItemsByCondition(string itemID, string itemName, string itemPlace)
+    {
+        bool atFirst = false;
+
+        // 해당 조건에 맞는 item들만 추가할 리스트
+        List< Dictionary<string, object>> item = new List<Dictionary<string, object>>();
+
+        // ID 조건
+        if(itemID != "")
+        {
+            atFirst = true;
+
+            for(int i=0; i< list.Count; i++)
+            {
+                if (list[i]["ID"] as string == itemID)
+                    item.Add(list[i]);
+            }
+        }
+        // Name 조건
+        if(atFirst)
+        {
+            if (itemName != "")
+            {
+                for (int i = 0; i < item.Count; i++)
+                {
+                    if (list[i]["NAME"] as string != itemName)
+                        item.Remove(list[i]);
+                }
+            }
+        }
+        else
+        {
+            atFirst = true;
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i]["NAME"] as string == itemName)
+                    item.Add(list[i]);
+            }
+        }
+        // Place 조건
+        if (atFirst)
+        {
+            if (itemPlace != "")
+            {
+                for (int i = 0; i < item.Count; i++)
+                {
+                    if (list[i]["PLACE"] as string != itemPlace)
+                        item.Remove(list[i]);
+                }
+            }
+        }
+        else
+        {
+            atFirst = true;
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i]["PLACE"] as string == itemPlace)
+                    item.Add(list[i]);
+            }
+        }
+        
+        return item;
+    }
+
     // ID의 item에 해당하는 NAME 노드 값
     public string GetNameByID(string itemID)
     {
-        // 이 함수는 CSV 파일의 Type이 Item_Info에서만 호출되어야 합니다.
-        if (type == CSV_TYPE.Mix_Info)
-        {
-            Debug.Log("Can't this Function!");
-            return "";
-        }
-
         for (int i = 0; i < list.Count; i++)
         {
             if (list[i]["ID"] as string == itemID)
                 return list[i]["NAME"] as string;
         }
-
-        Debug.Log("No Name Value!!");
         return "No Name!!";
-    }
-
-    // Name의 Item에 해당하는 ID 노드 값
-    public string GetIDByName(string itemName)
-    {
-        // 이 함수는 CSV 파일의 Type이 Item_Info에서만 호출되어야 합니다.
-        if (type == CSV_TYPE.Mix_Info)
-        {
-            Debug.Log("Can't this Function!");
-            return "";
-        }
-
-        for (int i = 0; i < list.Count; i++)
-        {
-            if (list[i]["NAME"] as string == itemName)
-                return list[i]["ID"] as string;
-        }
-
-        Debug.Log("No ID Value!!");
-        return "No ID!!";
     }
 
     // ID의 item에 해당하는 EXPLANATION 노드 값
     public string GetExplanationByID(string itemID)
     {
-        // 이 함수는 CSV 파일의 Type이 Item_Info에서만 호출되어야 합니다.
-        // 솔직히 Asset 해버리고 싶지만 참는다.
-        if (type == CSV_TYPE.Mix_Info)
-        {
-            Debug.Log("Can't this Function!");
-            return "";
-        }
-
         for (int i = 0; i < list.Count; i++)
         {
             if (list[i]["ID"] as string == itemID)
                 return list[i]["EXPLANATION"] as string;
         }
-
-        Debug.Log("No Explanation Value!!");
         return "No Explanation!!";
     }
 
     // ID의 item에 해당하는 MIX 노드 값
     public string GetMixByID(string itemID)
     {
-        // 이 함수는 CSV 파일의 Type이 Item_Info에서만 호출되어야 합니다.
-        // 솔직히 Asset 해버리고 싶지만 참는다.
-        if (type == CSV_TYPE.Mix_Info)
-        {
-            Debug.Log("Can't this Function!");
-            return "";
-        }
-
         for (int i = 0; i < list.Count; i++)
         {
             if (list[i]["ID"] as string == itemID)
                 return list[i]["MIX"] as string;
         }
 
-        Debug.Log("No Mix Value!!");
         return "No Mix Value!!";
-    }
-
-    // ID의 Sprite 이미지의 이름(파일속에 붙여진 이름)을 반환
-    public string GetSpriteByID(string itemID)
-    {
-        // 이 함수는 CSV 파일의 Type이 Item_Info에서만 호출되어야 합니다.
-        // 솔직히 Asset 해버리고 싶지만 참는다.
-        if (type == CSV_TYPE.Mix_Info)
-        {
-            Debug.Log("Can't this Function!");
-            return "";
-        }
-
-        for (int i = 0; i < list.Count; i++)
-        {
-            if (list[i]["ID"] as string == itemID)
-                return list[i]["SPRITE"] as string;
-        }
-        Debug.Log("No Sprite Value!!");
-        return "No Sprite Value!!";
     }
 
     //================================================ 비공개 메서드 정의 ======================================================//

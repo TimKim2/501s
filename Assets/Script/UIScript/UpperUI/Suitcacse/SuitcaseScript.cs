@@ -35,5 +35,6 @@ public class SuitcaseScript : UIScript {
             anim["SuitcaseClick"].speed = -1.0f;
             anim.Play("SuitcaseClick");
         }
+        
     }
 }

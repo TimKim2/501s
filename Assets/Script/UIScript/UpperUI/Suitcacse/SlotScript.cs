@@ -17,9 +17,8 @@ public class SlotScript : MonoBehaviour {
     public enum USE { ITEM, MATERIAL };
     public USE use;
 
-    // 현재 slot에 담긴 아이템의 수
-    private int count;
-    private Text countText;
+    // 각 slot마다 가지는 고유의 번호
+    private int index;
 
     // ContentScript로 부터 넘겨지는, 현재 slot에 표시되는 아이템의 ID
     private string ID;
@@ -29,8 +28,7 @@ public class SlotScript : MonoBehaviour {
     private string itemName;
     // 현재 slot에 표시되는 아이템의 설명
     private string itemExp;
-    // 각 slot마다 가지는 고유의 번호
-    private int index;
+
 
     // 조합 불가능한 아이템 표시 이미지
     private Image deActivatedImage;
@@ -38,7 +36,7 @@ public class SlotScript : MonoBehaviour {
     private Image activatedImage;
 
 
-    // 인벤토리 UI 사용을 위한 script.
+    // 전체적으로 Script에서 사용되는 script.
     private ItemScript itemScript;
 
 
@@ -47,25 +45,12 @@ public class SlotScript : MonoBehaviour {
     private bool isDrag;
 
 
-
-
-
-
-
-
-    //------------------------------------------------------------------------------ 모든 slot에 적용되는 function ----------------------------------------------
-
-
     // slot 기본 데이터 캐싱
     public void InitSlot(int index)
     {
         // slot 별 고유번호를 슬롯 관리자인 Content에서 지정
         // material slot의 경우 가리키고 있는 item slot의 index를 표시.
         this.index = index;
-
-        // count 정보 캐싱
-        count = 0;
-        countText = transform.GetChild(1).GetComponent<Text>();
 
         // 초기 아이템 정보 캐싱
         ID = "";
@@ -77,7 +62,7 @@ public class SlotScript : MonoBehaviour {
         deActivatedImage = transform.GetChild(0).GetChild(0).GetComponent<Image>();
         activatedImage = transform.GetChild(0).GetChild(1).GetComponent<Image>();
 
-        // 인벤토리 UI 사용을 위핸 스크립트 캐싱.
+        // 전체적으로 Script에서 사용되는 script 캐싱.
         itemScript = GameObject.Find("ItemDisplayer").GetComponent<ItemScript>();
 
         // 현재 slot의 아이템을 drag 하고 있는지 식별
@@ -100,8 +85,7 @@ public class SlotScript : MonoBehaviour {
         // 클릭한 slot이 속해있는 List가 재료 리스트이면..
         else
         {
-            // 좌측에 아이템 정보 표시
-            itemScript.EditClickItemInfo(itemName, itemExp, itemImage);
+            // No work
         }
     }
 
@@ -132,9 +116,11 @@ public class SlotScript : MonoBehaviour {
 
         // 드래그한 위치 정보..
         PointerEventData Data = _Data as PointerEventData;
+        // 를 Vector2로 변환
+        Vector3 conPos = Data.position;
 
         // Drag할 Image 객체를 현재 클릭 좌표로 이동
-		itemScript.dragImage.position = Data.position;
+		itemScript.dragImage.position = conPos;
     }
 
     public void OnDragEnd(BaseEventData _Data)
@@ -145,17 +131,14 @@ public class SlotScript : MonoBehaviour {
    
         // 클릭했던 slot에 아이템이 있으면 drag 종료
         isDrag = false;
+
+        // 클릭했던 slot의 표시를 제거
+        activatedImage.enabled = false;
+
         // Drag 되어지는 Image 객체가 안보이도록!
         itemScript.dragImage.gameObject.GetComponent<Image>().enabled = false;
         // Drag 되어지는 Image 객체 정보 초기화
         itemScript.dragImage.gameObject.GetComponent<Image>().sprite = null;
-
-        // 만약 클릭했던 slot이 클릭 불가 slot이면, 이후 작업이 필요없으므로 함수 종료
-        if(deActivatedImage.enabled)
-            return;
-
-        // 클릭했던 slot의 표시를 제거
-        activatedImage.enabled = false;
 
         // drag를 마친 자리가 조합 영역인 경우
         if (itemScript.gameObject.GetComponent<ContentScript>().GetIsDrag())
@@ -164,7 +147,7 @@ public class SlotScript : MonoBehaviour {
             if (use == USE.ITEM)
             {
                 // 클릭한 slot의 정보를 재료 영역의 content 에 전달하여 표시
-                itemScript.gameObject.GetComponent<ContentScript>().SetMaterial(ID, itemName, itemExp, itemImage.sprite, index);
+                itemScript.gameObject.GetComponent<ContentScript>().RegistMaterial(ID, index, itemImage.sprite);
             }
             // 클릭했던 slot이 속해있는 List가 재료 리스트이면..
             else
@@ -183,72 +166,62 @@ public class SlotScript : MonoBehaviour {
             // 클릭했던 slot이 속해있는 List가 재료 리스트이면..
             else
             {
-                // 재료 하나 빼기
-                DeleteMaterial(1);
+                // 전달되는 index 정보를 가진 slot을 소거하고, 리스트 재배열
+                itemScript.gameObject.GetComponent<ContentScript>().DeleteMaterial(index);
             }
         }
+
     }
-
-    // 현재 slot에 들어있는 오브젝트의 count 증가 시 호출
-    public void CountPlus(int n)
-    {
-        // 수를 늘리고..
-        count += n;
-        // UI에 표시
-        countText.text = count.ToString();
-    }
-
-    // 해당 slot의 정보 삭제
-    public void DeleteSlot()
-    {
-        // 저장한 정보 삭제
-        ID = "";
-        itemName = "";
-        itemExp = "";
-        // 단, item slot의 index는 고정값이므로 삭제x
-        if(use == USE.MATERIAL)
-            index = -1;
-        itemImage.sprite = null;
-        count = 0;
-
-        // slot에 표시되는 이미지 이제 없으니 표시 x
-        itemImage.enabled = false;
-
-        // 아이템이 없으니 slot에 표시할 text도 사라진다.
-        countText.enabled = false;
-    }
-
-    //------------------------------------------------------------------------------ Item slot 전용 function ----------------------------------------------
-
-
-    // 기존에 없던 종류의 Item 획득 시 호출
-    public void GetNewItem( string tempID, string tempName, string tempExp, Sprite tempImage)
+    
+    // Item 획득 시 호출(sprite는 item의 이미지)
+    public void GetItem( string tempID, string tempName, string tempExp, Sprite tempImage)
     {
         // 표시할 이미지 정보 저장
         ID = tempID;
         itemName = tempName;
         itemExp = tempExp;
+        // 이미지는 임시로..
         itemImage.sprite = tempImage;
 
-        // slot에 얻은 아이템 수 표시
-        countText.enabled = true;
+        // slot button target graphic을 변경(변경하지 않으면 click 시 색 변환이 안댐)
+        GetComponent<Button>().targetGraphic = itemImage;
 
         // slot에 얻은 아이템 이미지 표시
         itemImage.enabled = true;
-
-
     }
 
-    public void DeleteItem(int n)
+    public void RegistMaterial(string tempID, int tempIndex, Sprite tempImage)
     {
-        // 수를 줄이고..
-        count -= n;
-        // 만약 slot의 count가 0이하가 되면 slot에 들어있는 오브젝트 정보를 삭제한다.
-        if (count <= 0)
-            itemScript.gameObject.GetComponent<ContentScript>().DeleteItemSlot(index);
+        // 등록한 material 정보 저장
+        ID = tempID;
+        itemName = "";
+        itemExp = "";
+        index = tempIndex;
+        // 이미지는 임시로..
+        itemImage.sprite = tempImage;
 
-        // UI에 표시
-        countText.text = count.ToString();
+        // slot button target graphic을 변경(변경하지 않으면 click 시 색 변환이 안댐)
+        GetComponent<Button>().targetGraphic = itemImage;
+
+        // slot에 얻은 아이템 이미지 표시
+        itemImage.enabled = true;
+    }
+
+    // item 사용 시 호출
+    public void DeleteItem()
+    {
+        // 저장한 정보 삭제
+        ID = "";
+        itemName = "";
+        itemExp = "";
+        index = -1;
+        itemImage.sprite = null;
+
+        // slot button target graphic을 변경(변경하지 않으면 빈 칸 클릭 시 색 변환이 안댐)
+        GetComponent<Button>().targetGraphic = GetComponent<Image>();
+
+        // slot에 표시되는 이미지 이제 없으니 표시 x
+        itemImage.enabled = false;
     }
 
     // 현재 이 슬롯에 표시되는 물건이 조합에 사용할 수 있는 물건인지 확인
@@ -275,81 +248,18 @@ public class SlotScript : MonoBehaviour {
         deActivatedImage.enabled = false;
     }
 
-    //------------------------------------------------------------------------------ Material slot 전용 function ----------------------------------------------
-
-    // 새로운 조합 재료 등록 시 호출
-    public void SetNewMaterial(string tempID, string tempName, string tempExp, Sprite tempImage, int tempIndex)
-    {
-        // 등록한 material 정보 저장
-        ID = tempID;
-        itemName = tempName;
-        itemExp = tempExp;
-        itemImage.sprite = tempImage;
-        index = tempIndex;
-
-        // count 초기화
-        count = 0;
-
-        // slot에 얻은 아이템 수 표시
-        countText.enabled = true;
-
-        // slot에 얻은 아이템 이미지 표시
-        itemImage.enabled = true;
-    }
-
-    public void DeleteMaterial(int n)
-    {
-        // 수를 줄이고..
-        count -= n;
-
-        // 만약 slot의 count가 0이하가 되면 slot에 들어있는 오브젝트 정보를 삭제한다.
-        if(count <= 0)
-            itemScript.gameObject.GetComponent<ContentScript>().DeleteMaterialSlot(index);
-
-        // UI에 표시
-        countText.text = count.ToString();
-    }
-
-
-
-
-
-
-    // ---------------------------------------------------------------------- Get Set Function -----------------------------------------------
-
-    public void SetCount(int temp)
-    {
-        count = temp;
-        countText.text = count.ToString();
-    }
-
-    public int GetCount()
-    {
-        return count;
-    }
-
     public string GetID()
     {
         return ID;
     }
 
-    public string GetName()
+    public int GetIndex()
     {
-        return itemName;
-    }
-
-    public string GetExp()
-    {
-        return itemExp;
+        return index;
     }
 
     public Sprite GetImage()
     {
         return itemImage.sprite;
-    }
-
-    public int GetIndex()
-    {
-        return index;
     }
 }

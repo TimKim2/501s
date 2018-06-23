@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.U2D;
 
 public class NewPlayer : NewCharacter{
 
@@ -12,7 +11,6 @@ public class NewPlayer : NewCharacter{
     // 만약 특정 이벤트에서 이 객체에 코루틴을 작용하면, 기존에 작동되는 코루틴과 충돌이 일어날 수 있으므로,
     // 기존에 작동되는(평상시에 작동되는) 모든 코루틴을 관리할 수 있어야 한다.
     private List<IEnumerator> coroutineList;
-
 
     // =========================================== 공개 메서드 ============================================
 
@@ -48,7 +46,6 @@ public class NewPlayer : NewCharacter{
         ChangeAnimation();
     }
 
-
     // 외부에서 (아마 대부분 조이스틱 스크립트) 플레이어로 전달하는 정지 정보에 대한 함수
     public void Stop()
     {
@@ -61,8 +58,6 @@ public class NewPlayer : NewCharacter{
 
         // 애니메이션 정지
         ChangeAnimation();
-
-
     }
 
 
@@ -74,7 +69,6 @@ public class NewPlayer : NewCharacter{
         foreach(IEnumerator e in coroutineList)
         {
             StartCoroutine(e);
-            
         }
     }
 
@@ -116,19 +110,13 @@ public class NewPlayer : NewCharacter{
         if(isMoving)
         {
             // 오른쪽
-            if (moveVector.x >0)
+            if(moveVector.x >0)
             {
                 // 위
                 if (moveVector.y > 0)
                 {
                     if (beforeDir != BEHAVIOR_MODE.MOVE_TOPRIGHT)
                     {
-                        // 이전에 발동된 Trigger을 해제
-                        anim.ResetTrigger("TopLeft");
-                        anim.ResetTrigger("BotLeft");
-                        anim.ResetTrigger("BotRight");
-
-                        // 새로운 이동 Trigger 지정
                         anim.SetTrigger("TopRight");
 
                         beforeDir = BEHAVIOR_MODE.MOVE_TOPRIGHT;
@@ -139,12 +127,6 @@ public class NewPlayer : NewCharacter{
                 {
                     if (beforeDir != BEHAVIOR_MODE.MOVE_BOTRIGHT)
                     {
-                        // 이전에 발동된 Trigger을 해제
-                        anim.ResetTrigger("TopLeft");
-                        anim.ResetTrigger("BotLeft");
-                        anim.ResetTrigger("TopRight");
-
-                        // 새로운 이동 Trigger 지정
                         anim.SetTrigger("BotRight");
 
                         beforeDir = BEHAVIOR_MODE.MOVE_BOTRIGHT;
@@ -159,12 +141,6 @@ public class NewPlayer : NewCharacter{
                 {
                     if (beforeDir != BEHAVIOR_MODE.MOVE_TOPLEFT)
                     {
-                        // 이전에 발동된 Trigger을 해제
-                        anim.ResetTrigger("TopRight");
-                        anim.ResetTrigger("BotLeft");
-                        anim.ResetTrigger("BotRight");
-
-                        // 새로운 이동 Trigger 지정
                         anim.SetTrigger("TopLeft");
 
                         beforeDir = BEHAVIOR_MODE.MOVE_TOPLEFT;
@@ -175,12 +151,6 @@ public class NewPlayer : NewCharacter{
                 {
                     if (beforeDir != BEHAVIOR_MODE.MOVE_BOTLEFT)
                     {
-                        // 이전에 발동된 Trigger을 해제
-                        anim.ResetTrigger("TopLeft");
-                        anim.ResetTrigger("BotRight");
-                        anim.ResetTrigger("BotRight");
-
-                        // 새로운 이동 Trigger 지정
                         anim.SetTrigger("BotLeft");
 
                         beforeDir = BEHAVIOR_MODE.MOVE_BOTLEFT;

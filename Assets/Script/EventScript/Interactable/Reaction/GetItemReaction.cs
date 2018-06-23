@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GetItemReaction : DelayedReaction
 {
-    // 플레이어가 가지는 Item의 ID
     public string itemID;
+    public Sprite itempImage;
 
     private ContentScript playerInventory;
 
@@ -15,7 +15,7 @@ public class GetItemReaction : DelayedReaction
     {
         playerInventory = GameObject.Find("ItemDisplayer").GetComponent<ContentScript>();
 		//During Set Item Number
-        playerInventory.GetItem(itemID);
+        playerInventory.GetItem(itemID, itempImage);
 
 		if (itemObject != null)
 			Destroy (itemObject);
