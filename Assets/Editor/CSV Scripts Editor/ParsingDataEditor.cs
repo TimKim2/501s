@@ -34,14 +34,17 @@ public class ParsingDataEditor : Editor
         // 들여 쓰고..
         EditorGUI.indentLevel++;
 
-        EditorGUILayout.TextField("CSV FIle Path: ", parsingData.csvAllPath);
+        EditorGUILayout.TextField("CSV FIle Path   : ", parsingData.csvAllPath);
         EditorGUILayout.Space();
-        EditorGUILayout.LabelField("All Item Count : ", parsingData.list.Count.ToString());
+        EditorGUILayout.LabelField("Contents Count : ", parsingData.list.Count.ToString());
+        parsingData.type = (ParsingData.CSV_TYPE)EditorGUILayout.EnumPopup("CSV File Type   : ", parsingData.type);
         EditorGUILayout.Space();
 
         // 들여 쓴거 뺴고..
         EditorGUI.indentLevel--;
 
+
+        /*
         // Bold로 CSV File Info 표시
         GUILayout.Label("Item Condition Info", EditorStyles.boldLabel);
 
@@ -72,15 +75,13 @@ public class ParsingDataEditor : Editor
 
         // 들여 쓰고..
         EditorGUI.indentLevel++;
-
+        */
         
 
         if (EditorGUI.EndChangeCheck())
         {
             //변경전에 Undo 에 등록
-            Undo.RecordObject(parsingData, "Change hp");
-
-            
+            Undo.RecordObject(parsingData, "Change CSV");
 
         }
     }

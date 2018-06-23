@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76ac87ad856216f41b14986651f8c400, type: 3}
-  m_Name: All Item List Asset
+  m_Name: All Mix List Asset
   m_EditorClassIdentifier: 
-  csvAllPath: Assets/Resources/CSVData/All Item List.txt
-  csvFilePath: CSVData/All Item List
+  csvAllPath: Assets/Resources/CSVData/All Mix List.csv
+  csvFilePath: CSVData/All Mix List

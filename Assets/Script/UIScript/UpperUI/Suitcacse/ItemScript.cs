@@ -66,7 +66,6 @@ public class ItemScript : UIScript {
 
         // 조합 목록에 이전에 사용한 재료가 있다면 삭제
         GetComponent<ContentScript>().DeleteAllMaterial();
-
     }
 
     // drag 하여 모인 아이템들을 조합
@@ -90,6 +89,23 @@ public class ItemScript : UIScript {
         InitUI();
     }
 
+    // 취소 버튼 클릭
+    public void OnClickBack()
+    {
+        // 최초의 상태에서 조합 버튼을 클릭한 이후의 상황에서 취소를 클릭한 경우에는
+        if(bgState == BGSTATE.MIX2)
+        {
+            // 최초의 상태로 되돌아감
+            OnClickUI();
+        }
+        // 그 외에는
+        else
+        {
+            // 클릭했던 정보만 지운다.
+            InitUI();
+        }
+    }
+
     // 인벤토리 캔버스 종료
     public void OnClickClose()
     {
@@ -99,10 +115,6 @@ public class ItemScript : UIScript {
     // slot 클릭 시 좌측 칸에 클릭 아이템 정보 표시
     public void EditClickItemInfo(string name, string exp, Image image)
     {
-        // 빈 slot을 클릭한 경우 아무것도 하지않음
-        if (name == "" || name == "####")
-            return;
-
         itemName.text = name;
         itemExp.text = exp;
         itemImage.sprite = image.sprite;

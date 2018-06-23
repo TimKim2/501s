@@ -26,14 +26,10 @@ public class JoystickScript : MonoBehaviour {
 
         rectTrans = GetComponent<RectTransform>();
         
-        //idlePos = trans;
-        maxMove = 20.0f;
-        moveVector = new Vector2(0, 0);
-
         // Idle 상태에서(기본 상태에서) ClickArea 위치 캐싱
         idlePos = transform.position;
         // 최대 ClickArea 이동 거리 지정
-        maxMove = 20.0f;
+        maxMove = 25.0f;
 	}
 
     // 드래그
@@ -47,7 +43,7 @@ public class JoystickScript : MonoBehaviour {
         // 드래그한 위치가 maxMove보다 작다면 ClickArea 객체는 해당 위치에 있는다.
         if (Vector2.Distance(conPos, idlePos) < maxMove)
         {
-            rectTrans.localPosition = new Vector2(conPos.x - idlePos.x, conPos.y - idlePos.y);
+            transform.position = conPos;
         }
         // 드래그한 위치가 maxMove보다 크다면 ClickArea 객체는 maxMove 범위 내에 해당 방향에 위치한다.
         else
@@ -57,7 +53,7 @@ public class JoystickScript : MonoBehaviour {
             normalized.Normalize();
 
             // 크기가 1로 정규화된 normalized를 최대maxMove 의 크기만큼 변환 
-            rectTrans.localPosition = normalized * maxMove;
+           transform.position = idlePos + normalized * maxMove;
         }
 
         // 정규화한 벡터의 방향으로 플레이어를 이동
@@ -73,7 +69,7 @@ public class JoystickScript : MonoBehaviour {
 
         // ClickArea의 위치를 다시 중앙으로 이동
         // idlePos는 Transform 위치를 나타내기때문에 RectTransform인 rectTrans에 대입x
-        rectTrans.localPosition = Vector2.zero;
+        rectTrans.position = idlePos;
 
         // 현재 이동 방향이 없으므로 moveVector도 0으로 초기화
         moveVector = Vector2.zero;
